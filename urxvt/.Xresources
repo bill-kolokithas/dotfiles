@@ -1,0 +1,87 @@
+URxvt.perl-ext-common:      default,clipboard,url-select,keyboard-select,vtwheel
+URxvt.url-select.launcher:  firefox-bin
+URxvt.url-select.underline: true
+URxvt.matcher.button:       1
+URxvt.keysym.M-u:           perl:url-select:select_next
+URxvt.keysym.M-Escape:      perl:keyboard-select:activate
+URxvt.keysym.M-s:           perl:keyboard-select:search
+URxvt.keysym.C-C:           perl:clipboard:copy
+URxvt.keysym.C-V:           perl:clipboard:paste
+URxvt.keysym.C-A-V:         perl:clipboard:paste_escaped
+
+URxvt.scrollstyle: plain
+URxvt.termName: rxvt-unicode-256color
+URxvt.font: -xos4-terminus-medium-r-normal-*-16-160-72-72-c-80-iso10646-1, xft:DejaVu Sans mono
+URxvt.scrollBar_right: true
+URxvt.urgentOnBell: true
+URxvt.iso14755 : false
+URxvt.iso14755_52: false
+URxvt.saveLines: 8000
+
+! solarized theme
+! Common
+#define S_yellow        #b58900
+#define S_orange        #cb4b16
+#define S_red           #dc322f
+#define S_magenta       #d33682
+#define S_violet        #6c71c4
+#define S_blue          #268bd2
+#define S_cyan          #2aa198
+#define S_green         #859900
+
+! Dark
+#define S_base03        #002b36
+#define S_base02        #073642
+#define S_base01        #586e75
+#define S_base00        #657b83
+#define S_base0         #839496
+#define S_base1         #93a1a1
+#define S_base2         #eee8d5
+#define S_base3         #fdf6e3
+
+URxvt.background:              S_base03
+URxvt.foreground:              S_base0
+URxvt.fading:                  40
+URxvt.fadeColor:               S_base03
+URxvt.cursorColor:             S_base1
+URxvt.pointerColorBackground:  S_base01
+URxvt.pointerColorForeground:  S_base1
+
+URxvt.color0:                  S_base02
+URxvt.color1:                  S_red
+URxvt.color2:                  S_green
+URxvt.color3:                  S_yellow
+URxvt.color4:                  S_blue
+URxvt.color5:                  S_magenta
+URxvt.color6:                  S_cyan
+URxvt.color7:                  S_base2
+URxvt.color9:                  S_orange
+URxvt.color8:                  S_base03
+URxvt.color10:                 S_base01
+URxvt.color11:                 S_base00
+URxvt.color12:                 S_base0
+URxvt.color13:                 S_violet
+URxvt.color14:                 S_base1
+URxvt.color15:                 S_base3
+
+
+! Alternative euphrasia color scheme
+! URxvt.background: #1d3032
+! URxvt.foreground: #E6E6E6
+! URxvt.cursorColor: #1AAA13
+! URxvt.color0: #222946
+! URxvt.color8: #8C8B89
+! URxvt.color1: #B32323
+! URxvt.color9: #DC2C2C
+! URxvt.color2: #1AAA13
+! URxvt.color10: #5DCE33
+! URxvt.color3: #FF9F3E
+! URxvt.color11: #E6CB29
+! URxvt.color4: #4957F3
+! URxvt.color12: #4D79FF
+! URxvt.color5: #BF3E94
+! URxvt.color13: #B641CC
+! URxvt.color6: #09A5B3
+! URxvt.color14: #3CB6F3
+! URxvt.color7: #AEAEAE
+! URxvt.color15: #DBDDE4

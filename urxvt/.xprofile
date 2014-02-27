@@ -1,0 +1,8 @@
+xset r rate 340 40
+xinput --set-prop 'Logitech USB-PS/2 Optical Mouse' 'Device Accel Profile' -1
+xset -dpms
+xset s off
+xset +fp /usr/share/fonts/terminus/
+xset fp rehash
+xrdb -merge ~/.Xresources
+setxkbmap -layout us,gr -option grp:shifts_toggle,caps:escape
