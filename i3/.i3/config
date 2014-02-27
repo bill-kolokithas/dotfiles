@@ -177,7 +177,7 @@ hide_edge_borders both
 bindsym XF86AudioRaiseVolume $execi amixer -q set Master 5+
 bindsym XF86AudioLowerVolume $execi amixer -q set Master 5-
 bindsym XF86AudioMute $execi amixer -q set Master toggle
-bindsym $mod+F9 $execi ~/bin/toggle-analog-output.sh
+bindsym $mod+F9 $execi ~/.i3/toggle-analog-output.sh
 bindsym XF86MyComputer exec urxvt -e ranger
 bindsym XF86HomePage exec firefox-bin
 bindsym XF86Calculator exec gnome-calculator
