@@ -1,0 +1,27 @@
+[user]
+	name = Bill Kolokithas
+	email = kolokithas.b@gmail.com
+[push]
+	default = matching
+[branch]
+	autosetuprebase = always
+[color]
+	status = auto
+	branch = auto
+	ui = true
+[credential]
+	helper = cache --timeout=7200
+[core]
+	editor = vim
+[merge]
+	tool = meld
+[diff]
+	tool = meld
+[difftool]
+	prompt = false
+
+[sendemail]
+	smtpencryption = tls
+	smtpserver = smtp.gmail.com
+	smtpuser = kolokithas.b@gmail.com
+	smtpserverport = 587
