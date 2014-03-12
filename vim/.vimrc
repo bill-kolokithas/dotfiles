@@ -23,6 +23,7 @@ Bundle 'tpope/vim-vinegar'
 Bundle 'bronson/vim-visual-star-search'
 Bundle 'kana/vim-textobj-user'
 Bundle 'kana/vim-textobj-lastpat'
+Bundle 'PotatoesMaster/i3-vim-syntax'
 
 filetype plugin indent on
 set number
@@ -32,9 +33,9 @@ set laststatus=2
 set noshowmode
 set wildmenu
 set wildmode=full
-set cpoptions+=$
 set hidden
 set showcmd
+set modeline
 set relativenumber
 set ttimeoutlen=0
 
@@ -48,6 +49,7 @@ let g:UltiSnipsExpandTrigger = "<c-j>"
 let g:UltiSnipsJumpForwardTrigger = "<c-j>"
 let g:UltiSnipsJumpBackwardTrigger = "<c-k>"
 let g:UltiSnipsDontReverseSearchPath=1
+let g:UltiSnipsSnippetDirectories=["UltiSnips", "mysnippets"]
 let g:ycm_collect_identifiers_from_tags_files = 1
 autocmd FileType c set commentstring=//\ %s
 

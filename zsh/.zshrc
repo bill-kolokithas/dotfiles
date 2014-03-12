@@ -95,6 +95,8 @@ if (( ${+terminfo[smkx]} )) && (( ${+terminfo[rmkx]} )); then
     zle -N zle-line-finish
 fi
 
+source /usr/share/zsh/site-contrib/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+
 alias ls='ls --color=auto'
 alias grep='grep --color=auto'
 alias ..="cd .."

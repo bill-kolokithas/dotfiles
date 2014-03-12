@@ -44,6 +44,6 @@ pcm.headphones {
 	hint {
 		show on
 		description "Headphones"
-}
+	}
 }
 
