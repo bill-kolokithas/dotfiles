@@ -179,7 +179,7 @@ bindsym XF86Calculator exec gnome-calculator
 bindsym XF86AudioMedia $execi deadbeef
 bindsym Print $execi scrot ~/imgur.png -e '~/bin/imgur-oauth.rb $f'
 bindsym $mod+Print --release $execi scrot ~/imgur.png -s -e '~/bin/imgur-oauth.rb $f'
-bindsym Scroll_Lock $execi i3lock -c 000000 && sleep 3 && xset dpms force off
+bindsym Scroll_Lock $execi i3lock -dui ~/.i3/windows-bluescreen.png
 bindsym $mod+Scroll_Lock exec sudo pm-suspend
 bindsym Pause $execi notify-send "$(termit auto en `xclip -o`)"
 
