@@ -1,4 +1,4 @@
-192.168.1.254	gateway.router
+192.168.1.254	default.gateway
 192.168.1.10	gentoo.desktop
 192.168.1.40	android.tablet
 192.168.1.25	freebsd.vm

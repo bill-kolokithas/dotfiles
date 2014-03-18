@@ -39,6 +39,7 @@ set showcmd
 set modeline
 set relativenumber
 set ttimeoutlen=0
+" set iskeyword-=_
 
 let mapleader=" "
 let g:ycm_confirm_extra_conf=0
