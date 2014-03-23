@@ -29,6 +29,7 @@ Plugin 'PotatoesMaster/i3-vim-syntax'
 Plugin 'tommcdo/vim-exchange'
 
 filetype plugin indent on
+syntax on
 set number
 set tabstop=4
 set shiftwidth=4
