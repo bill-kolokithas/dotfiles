@@ -51,7 +51,7 @@ Stow provides a flag to quickly remove all symlinks installed by a package:
 `sound` not an actual package. It is a folder containing 2 packages. You have to `cd` in it and then run the following command:
 
     stow -t /etc mpd
-    
+
 Another way of doing that without entering the `dotfiles/sound` directory, is to specify the path in stow.  
 The first example assumes that you are in the `dotfiles` directory. The second one can be run from anywhere.
 

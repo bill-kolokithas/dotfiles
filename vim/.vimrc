@@ -42,6 +42,10 @@ set showcmd
 set modeline
 set relativenumber
 set ttimeoutlen=0
+set ignorecase
+set smartcase
+set hlsearch
+set incsearch
 set regexpengine=1
 
 let mapleader=" "
@@ -59,6 +63,8 @@ let g:ycm_collect_identifiers_from_tags_files = 1
 autocmd FileType c set commentstring=//\ %s
 
 noremap <C-l> :nohlsearch<CR>
+nnoremap & :&&<CR>
+xnoremap & :&&<CR>
 nnoremap Y y$
 nnoremap Q @q
 imap <up> <C-O>gk

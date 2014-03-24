@@ -1,7 +1,12 @@
 autoload -U promptinit && promptinit
 autoload -U colors && colors
+zle -N zle-keymap-select
+function zle-keymap-select {
+	VIMODE="${${KEYMAP/vicmd/-- NORMAL --}/(main|viins)/}"
+	zle reset-prompt
+}
 PROMPT="%n@%{$fg[cyan]%}%m%{$reset_color%} %1~ %# "
-RPROMPT='%{$fg[magenta]%}${vcs_info_msg_0_}%{$reset_color%}'
+RPROMPT='%{$fg[green]%}$VIMODE %{$fg[magenta]%}${vcs_info_msg_0_}%{$reset_color%}'
 
 HISTFILE=~/.histfile
 HISTSIZE=8000
@@ -47,7 +52,7 @@ hosts=(
 zstyle ':completion:*:hosts' hosts $hosts
 
 ################################# keybindings #################################
-bindkey -e
+bindkey -v
 typeset -A key
 
 autoload -Uz up-line-or-beginning-search
