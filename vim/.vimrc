@@ -54,28 +54,43 @@ let g:easytags_updatetime_warn=0
 let g:airline#extensions#whitespace#enabled=0
 let g:EasyMotion_leader_key = '<Leader>'
 let g:ycm_autoclose_preview_window_after_completion=1
+let g:ycm_collect_identifiers_from_tags_files=1
+
+" Change ultisnips hotkeys to not collide with youcompleteme
 let g:UltiSnipsExpandTrigger = "<c-j>"
 let g:UltiSnipsJumpForwardTrigger = "<c-j>"
 let g:UltiSnipsJumpBackwardTrigger = "<c-k>"
 let g:UltiSnipsDontReverseSearchPath=1
 let g:UltiSnipsSnippetDirectories=["UltiSnips", "mysnippets"]
-let g:ycm_collect_identifiers_from_tags_files = 1
-autocmd FileType c set commentstring=//\ %s
 
 noremap <C-l> :nohlsearch<CR>
 nnoremap & :&&<CR>
 xnoremap & :&&<CR>
 nnoremap Y y$
 nnoremap Q @q
+nmap <leader><Space> i<space><esc>
+
+" Enable very magic regex by default
+nnoremap / /\v
+nnoremap ? ?\v
+cnoremap %s/ %s/\v
+cnoremap g/ g/\v
+cnoremap g!/ g!/\v
+
+" Use arrows to navigate on wrapped lines
 imap <up> <C-O>gk
 imap <down> <C-O>gj
 nmap <up> gk
 nmap <down> gj
 vmap <up> gk
 vmap <down> gj
+
+" Save file with ctrl+s like most GUI editors
 noremap  <silent> <C-S> :update<CR>
 vnoremap <silent> <C-S> <Esc>:update<CR>
 inoremap <silent> <C-S> <C-O>:update<CR>
+
+" Mappings to integrate with system clipboard
 nnoremap <leader>y "+y
 vnoremap <leader>y "+y
 nnoremap <leader>Y "+Y
@@ -84,13 +99,15 @@ nnoremap <leader>p "+p
 vnoremap <leader>p "+p
 nnoremap <leader>P "+P
 vnoremap <leader>P "+P
-nmap <leader><Space> i<space><esc>
 
+" Highlight starting & trailing whitespace
 augroup vimrc_autocmds
 	autocmd BufEnter * highlight ExtraWhitespace ctermbg=red guibg=red
 	autocmd BufEnter * match ExtraWhitespace /\s\+\%#\@<!$/
 	autocmd BufEnter * 2match ExtraWhitespace /^\t*\zs \+/
 augroup END
+
+autocmd FileType c set commentstring=//\ %s
 
 set background=dark
 colorscheme solarized
