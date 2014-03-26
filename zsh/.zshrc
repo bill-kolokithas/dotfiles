@@ -8,6 +8,11 @@ function zle-keymap-select {
 PROMPT="%n@%{$fg[cyan]%}%m%{$reset_color%} %1~ %# "
 RPROMPT='%{$fg[green]%}$VIMODE %{$fg[magenta]%}${vcs_info_msg_0_}%{$reset_color%}'
 
+function TRAPINT() {
+	VIMODE=$vim_ins_mode
+	return $(( 128 + $1 ))
+}
+
 HISTFILE=~/.histfile
 HISTSIZE=8000
 SAVEHIST=8000
