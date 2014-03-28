@@ -1,15 +1,19 @@
 autoload -U promptinit && promptinit
 autoload -U colors && colors
-zle -N zle-keymap-select
-function zle-keymap-select {
-	VIMODE="${${KEYMAP/vicmd/-- NORMAL --}/(main|viins)/}"
-	zle reset-prompt
-}
 PROMPT="%n@%{$fg[cyan]%}%m%{$reset_color%} %1~ %# "
 RPROMPT='%{$fg[green]%}$VIMODE %{$fg[magenta]%}${vcs_info_msg_0_}%{$reset_color%}'
 
+function zle-line-init zle-keymap-select zle-line-finish {
+	VIMODE="${${KEYMAP/vicmd/-- NORMAL --}/(main|viins)/}"
+	zle reset-prompt
+}
+zle -N zle-line-init
+zle -N zle-keymap-select
+zle -N zle-line-finish
+
 function TRAPINT() {
-	VIMODE=$vim_ins_mode
+	VIMODE=
+	zle && zle reset-prompt
 	return $(( 128 + $1 ))
 }
 
@@ -26,7 +30,7 @@ zstyle ':vcs_info:*' check-for-changes true
 zstyle ':vcs_info:git*' formats "%c%u%b"
 zstyle ':vcs_info:git*' stagedstr "✔ "
 zstyle ':vcs_info:git*' unstagedstr "✘ "
-precmd() { vcs_info }
+precmd() { VIMODE= ; vcs_info }
 
 zstyle :compinstall filename "$HOME/.zshrc"
 autoload -Uz compinit && compinit

@@ -97,8 +97,6 @@ nmap <up> gk
 nmap <down> gj
 vmap <up> gk
 vmap <down> gj
-noremap <left> :bp<CR>
-noremap <right> :bn<CR>
 
 " Save & exit like in most GUI editors
 noremap  <silent> <C-S> :update<CR>
