@@ -121,10 +121,10 @@ set pastetoggle=<F8>
 augroup vimrc_autocmds
 	autocmd BufEnter * highlight ExtraWhitespace ctermbg=red guibg=red
 	autocmd BufEnter * match ExtraWhitespace /\s\+\%#\@<!$/
-	autocmd BufEnter * 2match ExtraWhitespace /^\t*\zs \+/
+	autocmd BufEnter *.c,*.h 2match ExtraWhitespace /^\t*\zs \+/
 augroup END
 
-autocmd FileType c set commentstring=//\ %s
+autocmd FileType c,cpp set commentstring=//\ %s
 
 set background=dark
 colorscheme solarized
