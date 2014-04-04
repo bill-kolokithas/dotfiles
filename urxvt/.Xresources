@@ -11,7 +11,7 @@ URxvt.keysym.C-A-V:         perl:clipboard:paste_escaped
 
 URxvt.scrollstyle: plain
 URxvt.termName: rxvt-unicode-256color
-URxvt.font: -xos4-terminus-medium-r-normal-*-16-160-72-72-c-80-iso10646-1, xft:DejaVu Sans mono
+URxvt.font: -xos4-terminus-medium-r-normal-*-16-160-72-72-c-80-iso10646-1
 URxvt.scrollBar_right: true
 URxvt.urgentOnBell: true
 URxvt.iso14755 : false
