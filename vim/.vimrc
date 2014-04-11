@@ -83,13 +83,6 @@ vnoremap < <gv
 vnoremap > >gv
 nmap <leader><Space> i<space><esc>
 
-" Enable very magic regex by default
-nnoremap / /\v
-nnoremap ? ?\v
-cnoremap %s/ %s/\v
-cnoremap g/ g/\v
-cnoremap g!/ g!/\v
-
 " Use arrows to navigate on wrapped lines & change buffers
 imap <up> <C-O>gk
 imap <down> <C-O>gj
@@ -101,7 +94,7 @@ vmap <down> gj
 " Save & exit like in most GUI editors
 noremap  <silent> <C-S> :update<CR>
 vnoremap <silent> <C-S> <Esc>:update<CR>
-inoremap <silent> <C-S> <C-O>:update<CR>
+inoremap <silent> <C-S> <Esc>:update<CR>
 noremap  <silent> <C-Q> :quit<CR>
 vnoremap <silent> <C-Q> <Esc>:quit<CR>
 inoremap <silent> <C-Q> <C-O>:quit<CR>
@@ -124,7 +117,7 @@ augroup vimrc_autocmds
 	autocmd BufEnter *.c,*.h 2match ExtraWhitespace /^\t*\zs \+/
 augroup END
 
-autocmd FileType c,cpp set commentstring=//\ %s
+autocmd FileType c set commentstring=//\ %s
 
 set background=dark
 colorscheme solarized
