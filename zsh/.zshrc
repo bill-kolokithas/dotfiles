@@ -84,7 +84,6 @@ key[Right]=${terminfo[kcuf1]}
 key[PageUp]=${terminfo[kpp]}
 key[PageDown]=${terminfo[knp]}
 
-# setup key accordingly
 [[ -n "${key[Home]}"     ]]  && bindkey  "${key[Home]}"     beginning-of-line
 [[ -n "${key[End]}"      ]]  && bindkey  "${key[End]}"      end-of-line
 [[ -n "${key[Insert]}"   ]]  && bindkey  "${key[Insert]}"   overwrite-mode
@@ -95,6 +94,11 @@ key[PageDown]=${terminfo[knp]}
 [[ -n "${key[Right]}"    ]]  && bindkey  "${key[Right]}"    forward-char
 [[ -n "${key[PageUp]}"   ]]  && bindkey  "${key[PageUp]}"   beginning-of-buffer-or-history
 [[ -n "${key[PageDown]}" ]]  && bindkey  "${key[PageDown]}" end-of-buffer-or-history
+
+# Vi mode hotkeys
+bindkey -M vicmd "k" up-line-or-beginning-search
+bindkey -M vicmd "j" down-line-or-beginning-search
+bindkey -M vicmd '/' history-incremental-search-backward
 
 # Finally, make sure the terminal is in application mode, when zle is
 # active. Only then are the values from $terminfo valid.
