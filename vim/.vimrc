@@ -49,6 +49,8 @@ set ignorecase
 set smartcase
 set hlsearch
 set incsearch
+set splitbelow
+set splitright
 set regexpengine=1
 
 " Set up persistent undo
