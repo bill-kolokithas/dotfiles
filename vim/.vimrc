@@ -1,9 +1,9 @@
 set nocompatible
 filetype off
-set rtp+=~/.vim/bundle/vundle/
-call vundle#rc()
+set rtp+=~/.vim/bundle/Vundle.vim
+call vundle#begin()
 
-Plugin 'gmarik/vundle'
+Plugin 'gmarik/Vundle.vim'
 Plugin 'Valloric/YouCompleteMe'
 Plugin 'kien/ctrlp.vim'
 Plugin 'mileszs/ack.vim'
@@ -31,7 +31,9 @@ Plugin 'lucapette/vim-textobj-underscore'
 Plugin 'PotatoesMaster/i3-vim-syntax'
 Plugin 'tommcdo/vim-exchange'
 
+call vundle#end()
 filetype plugin indent on
+
 syntax on
 set tabstop=4
 set shiftwidth=4
@@ -51,6 +53,7 @@ set hlsearch
 set incsearch
 set splitbelow
 set splitright
+set mouse=a
 set regexpengine=1
 
 " Set up persistent undo
