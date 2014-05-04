@@ -67,6 +67,7 @@ set undofile
 let mapleader=" "
 let g:ycm_confirm_extra_conf=0
 let g:easytags_updatetime_warn=0
+let g:easytags_python_enabled=1
 let g:airline#extensions#whitespace#enabled=0
 let g:EasyMotion_leader_key = '<Leader>'
 let g:ycm_autoclose_preview_window_after_completion=1

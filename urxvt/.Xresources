@@ -1,5 +1,5 @@
-URxvt.perl-ext-common:      default,clipboard,url-select,keyboard-select,vtwheel
-URxvt.url-select.launcher:  firefox
+URxvt.perl-ext-common:      default,clipboard,url-select,keyboard-select,selection-to-clipboard,vtwheel
+URxvt.url-select.launcher:  firefox-bin
 URxvt.url-select.underline: true
 URxvt.matcher.button:       1
 URxvt.keysym.M-u:           perl:url-select:select_next
