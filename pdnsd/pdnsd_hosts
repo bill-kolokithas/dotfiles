@@ -1,8 +1,8 @@
-192.168.1.254	default.gateway
 192.168.1.10	gentoo.desktop
-192.168.1.40	android.tablet
-192.168.1.25	freebsd.vm
+192.168.1.15	android.tablet
 192.168.1.20	lfs.vm
+192.168.1.25	freebsd.vm
 192.168.1.30	archlinux.vm
 192.168.1.35	gentoo.vm
+192.168.1.254	default.gateway
 

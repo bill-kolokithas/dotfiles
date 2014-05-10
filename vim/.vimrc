@@ -72,6 +72,7 @@ let g:airline#extensions#whitespace#enabled=0
 let g:EasyMotion_leader_key = '<Leader>'
 let g:ycm_autoclose_preview_window_after_completion=1
 let g:ycm_collect_identifiers_from_tags_files=1
+let g:airline_powerline_fonts=1
 
 " Change ultisnips hotkeys to not collide with youcompleteme
 let g:UltiSnipsExpandTrigger = "<c-j>"
