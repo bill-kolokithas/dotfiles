@@ -181,10 +181,10 @@ bindsym Print $execi scrot ~/imgur.png -e '~/bin/imgur-oauth.rb $f'
 bindsym $mod+Print --release $execi scrot ~/imgur.png -s -e '~/bin/imgur-oauth.rb $f'
 bindsym Scroll_Lock $execi i3lock -ui ~/.i3/windows-bluescreen.png
 bindsym $mod+Scroll_Lock exec sudo pm-suspend
-bindsym Pause $execi notify-send "$(termit auto en `xclip -o`)"
+bindsym Pause --release exec xkill
 
 # Autostart
-#$execi sh ~/.fehbg
+$execi sh ~/.fehbg
 $execi parcellite
 $execi nvidia-settings -a GPUPowerMizerMode=1
 

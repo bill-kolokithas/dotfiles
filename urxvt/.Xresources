@@ -1,4 +1,4 @@
-URxvt.perl-ext-common:      default,clipboard,url-select,keyboard-select,selection-to-clipboard,vtwheel
+URxvt.perl-ext-common:      default,clipboard,url-select,keyboard-select,vtwheel
 URxvt.url-select.launcher:  firefox-bin
 URxvt.url-select.underline: true
 URxvt.matcher.button:       1

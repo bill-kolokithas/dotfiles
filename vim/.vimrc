@@ -30,6 +30,7 @@ Plugin 'coderifous/textobj-word-column.vim'
 Plugin 'lucapette/vim-textobj-underscore'
 Plugin 'PotatoesMaster/i3-vim-syntax'
 Plugin 'tommcdo/vim-exchange'
+Plugin 'tpope/vim-rails'
 
 call vundle#end()
 filetype plugin indent on
@@ -118,13 +119,8 @@ vnoremap <leader>P "+P
 set pastetoggle=<F8>
 
 " Highlight starting & trailing whitespace
-augroup vimrc_autocmds
-	autocmd BufEnter * highlight ExtraWhitespace ctermbg=red guibg=red
-	autocmd BufEnter * match ExtraWhitespace /\s\+\%#\@<!$/
-	autocmd BufEnter *.c,*.h 2match ExtraWhitespace /^\t*\zs \+/
-augroup END
-
-autocmd FileType c set commentstring=//\ %s
+autocmd BufEnter * highlight ExtraWhitespace ctermbg=red guibg=red
+autocmd BufEnter * match ExtraWhitespace /\s\+\%#\@<!$/
 
 set background=dark
 colorscheme solarized
