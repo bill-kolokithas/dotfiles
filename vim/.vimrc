@@ -57,12 +57,17 @@ set splitright
 set mouse=a
 set regexpengine=1
 
-" Set up persistent undo
-if isdirectory($HOME . '/.cache/vim-undo') == 0
-	:silent !mkdir -p ~/.cache/vim-undo > /dev/null 2>&1
+" Set up swap and persistent undo
+if isdirectory($HOME . '/.cache/vim/swap') == 0
+	:silent !mkdir -p ~/.cache/vim/swap > /dev/null 2>&1
 endif
 
-set undodir=~/.cache/vim-undo
+if isdirectory($HOME . '/.cache/vim/undo') == 0
+	:silent !mkdir -p ~/.cache/vim/undo > /dev/null 2>&1
+endif
+
+set directory=~/.cache/vim/swap
+set undodir=~/.cache/vim/undo
 set undofile
 
 let mapleader=" "

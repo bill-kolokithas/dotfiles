@@ -162,7 +162,7 @@ bindsym $mod+Shift+equal move scratchpad
 bindsym $mod+equal scratchpad show
 
 # window options
-for_window [class="Gcalctool"] floating enable
+for_window [class="Gnome-calculator"] floating enable
 for_window [class="Zenity"] floating enable
 
 new_window normal 1

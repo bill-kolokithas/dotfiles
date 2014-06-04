@@ -2,7 +2,7 @@
 
 while true; do
 	official=$(checkupdates)
-	aur=$(cower -u | gawk '{print $2}')
+	aur=$(cower -u | awk '{print $2}')
 
 	if [[ $official ]]; then
 		notify-send "Official" "$official"

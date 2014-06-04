@@ -2,4 +2,5 @@
 !vim/.vim
 !vim/.vim/bundle
 vim/.vim/bundle
+vim/.vim/.netrwhist
 !vim/.vim/bundle/Vundle.vim
