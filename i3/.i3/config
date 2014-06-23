@@ -22,7 +22,7 @@ font -xos4-terminus-medium-r-normal-*-12-120-72-72-c-60-iso10646-1
 floating_modifier $mod
 
 # start a terminal
-bindsym $mod+Return exec urxvt
+bindsym $mod+Return $execi urxvt
 
 # kill focused window
 bindsym $mod+Shift+q kill
@@ -87,8 +87,8 @@ bindsym $mod+z focus child
 
 # switch to workspace
 bindsym $mod+1 workspace 1: web
-bindsym $mod+2 workspace 2: irc
-bindsym $mod+3 workspace 3: code
+bindsym $mod+2 workspace 2: code
+bindsym $mod+3 workspace 3: irc
 bindsym $mod+4 workspace 4: music
 bindsym $mod+5 workspace 5
 bindsym $mod+6 workspace 6
@@ -99,8 +99,8 @@ bindsym $mod+0 workspace 10
 
 # move focused container to workspace
 bindsym $mod+Shift+1 move container to workspace 1: web
-bindsym $mod+Shift+2 move container to workspace 2: irc
-bindsym $mod+Shift+3 move container to workspace 3: code
+bindsym $mod+Shift+2 move container to workspace 2: code
+bindsym $mod+Shift+3 move container to workspace 3: irc
 bindsym $mod+Shift+4 move container to workspace 4: music
 bindsym $mod+Shift+5 move container to workspace 5
 bindsym $mod+Shift+6 move container to workspace 6
@@ -161,10 +161,6 @@ bindsym $mod+Shift+equal move scratchpad
 # Show the first scratchpad window
 bindsym $mod+equal scratchpad show
 
-# window options
-for_window [class="Gnome-calculator"] floating enable
-for_window [class="Zenity"] floating enable
-
 new_window normal 1
 hide_edge_borders both
 
@@ -182,6 +178,8 @@ bindsym $mod+Print --release $execi scrot ~/imgur.png -s -e '~/bin/imgur-oauth.r
 bindsym Scroll_Lock $execi i3lock -ui ~/.i3/windows-bluescreen.png
 bindsym $mod+Scroll_Lock exec sudo pm-suspend
 bindsym Pause --release exec xkill
+bindsym $mod+F1 $execi ~/.i3/layouts/1.sh
+bindsym $mod+F2 $execi ~/.i3/layouts/2.sh
 
 # Autostart
 $execi sh ~/.fehbg

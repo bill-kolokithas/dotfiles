@@ -30,7 +30,8 @@ zstyle ':vcs_info:*' check-for-changes true
 zstyle ':vcs_info:git*' formats "%c%u%b"
 zstyle ':vcs_info:git*' stagedstr "✔ "
 zstyle ':vcs_info:git*' unstagedstr "✘ "
-precmd() { VIMODE= ; vcs_info }
+precmd() { VIMODE= ; vcs_info; print -Pn "\e]0;urxvt\a" }
+preexec () { print -Pn "\e]0;$1\a" }
 
 zstyle :compinstall filename "$HOME/.zshrc"
 autoload -Uz compinit && compinit
