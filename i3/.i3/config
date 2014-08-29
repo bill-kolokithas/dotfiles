@@ -164,6 +164,8 @@ bindsym $mod+equal scratchpad show
 new_window normal 1
 hide_edge_borders both
 
+for_window [class="Leafpad"] floating enable
+
 # Custom keybindings
 bindsym XF86AudioRaiseVolume $execi amixer -q set Master 5+
 bindsym XF86AudioLowerVolume $execi amixer -q set Master 5-
