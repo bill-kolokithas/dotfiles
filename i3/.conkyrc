@@ -13,9 +13,9 @@ TEXT
 
 [\
 # MPD
-{"full_text":"${if_mpd_playing} MPD","color":"\#888888","separator":false},\
-{"full_text":"${mpd_smart}","color":"\#AAF096","separator":false},\
-{"full_text":"${endif}"},\
+#{"full_text":"${if_mpd_playing} MPD","color":"\#888888","separator":false},\
+#{"full_text":"${mpd_smart}","color":"\#AAF096","separator":false},\
+#{"full_text":"${endif}"},\
 # Volume:
 {"full_text":"VOLUME","color":"\#888888","separator":false,"separator_block_width":6},\
 {"full_text":"${if_match "${execi 1.5 amixer get Master | ~/.i3/volume-levels.awk -v POS=7}"=="on"}"},\

@@ -687,6 +687,18 @@ class rename(Command):
     def tab(self):
         return self._tab_directory_content()
 
+class renameConsole(Command):
+    """:renameConsole
+
+    Creates an open_console for the rename command, automatically placing the cursor before the file extension.
+    """
+
+    def execute(self):
+        if "." in self.fm.thisfile.basename:
+            offset = 6 + len(self.fm.thisfile.basename) - self.fm.thisfile.basename[::-1].index('.')
+            self.fm.open_console('rename ' + self.fm.thisfile.basename, position=offset)
+        else:
+            self.fm.open_console('rename ' + self.fm.thisfile.basename)
 
 class chmod(Command):
     """:chmod <octal number>
@@ -1246,7 +1258,6 @@ class log(Command):
         pager = os.environ.get('PAGER', ranger.DEFAULT_PAGER)
         self.fm.run([pager, tmp.name])
 
-
 class extracthere(Command):
     def execute(self):
         """ Extract copied files to current directory """
@@ -1277,7 +1288,6 @@ class extracthere(Command):
 
         obj.signal_bind('after', refresh)
         self.fm.loader.add(obj)
-
 
 class compress(Command):
     def execute(self):
