@@ -1,7 +1,7 @@
 typeset -U path
 path=(
 	$path
-	/home/free/.gem/ruby/2.1.0/bin
+	/home/free/.gem/ruby/2.2.0/bin
 	/home/free/bin
 )
 
