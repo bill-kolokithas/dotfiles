@@ -179,6 +179,7 @@ bindsym Print $execi scrot ~/imgur.png -e '~/bin/imgur-oauth.rb $f'
 bindsym $mod+Print --release $execi scrot ~/imgur.png -s -e '~/bin/imgur-oauth.rb $f'
 bindsym Scroll_Lock $execi i3lock -ui ~/.i3/windows-bluescreen.png
 bindsym $mod+Scroll_Lock exec sudo pm-suspend
+bindsym $mod+Shift+Scroll_Lock exec sudo poweroff
 bindsym Pause --release exec xkill
 bindsym $mod+F1 $execi ~/.i3/layouts/1.sh
 bindsym $mod+F2 $execi ~/.i3/layouts/2.sh

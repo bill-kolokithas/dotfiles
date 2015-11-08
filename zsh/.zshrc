@@ -1,6 +1,6 @@
 autoload -U promptinit && promptinit
 autoload -U colors && colors
-PROMPT="%n@%{$fg[cyan]%}%m%{$reset_color%} %1~ %# "
+PROMPT="%{$fg[blue]%}[%T]%{$reset_color%} %n@%{$fg[cyan]%}%m%{$reset_color%} %1~ %# "
 RPROMPT='%{$fg[green]%}$VIMODE %{$fg[magenta]%}${vcs_info_msg_0_}%{$reset_color%}'
 
 function zle-line-init zle-keymap-select zle-line-finish {

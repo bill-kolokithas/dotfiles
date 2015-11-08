@@ -123,7 +123,7 @@ nnoremap <leader>P "+P
 vnoremap <leader>P "+P
 set pastetoggle=<F8>
 
-" Highlight starting & trailing whitespace
+" Highlight leading & trailing whitespace
 autocmd BufEnter * highlight ExtraWhitespace ctermbg=red guibg=red
 autocmd BufEnter * match ExtraWhitespace /\s\+\%#\@<!$/
 

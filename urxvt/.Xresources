@@ -16,7 +16,7 @@ URxvt.scrollBar_right: true
 URxvt.urgentOnBell: true
 URxvt.iso14755 : false
 URxvt.iso14755_52: false
-URxvt.saveLines: 8000
+URxvt.saveLines: 10000
 
 ! do not scroll with output
 URxvt.scrollTtyOutput: false
