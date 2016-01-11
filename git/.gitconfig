@@ -25,3 +25,6 @@
 	smtpserver = smtp.gmail.com
 	smtpuser = kolokithas.b@gmail.com
 	smtpserverport = 587
+[alias]
+	co = checkout
+	st = status
