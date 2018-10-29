@@ -66,7 +66,8 @@ bindsym $mod+g split h
 bindsym $mod+v split v
 
 # enter fullscreen mode for the focused container
-bindsym $mod+f fullscreen
+bindsym $mod+f fullscreen toggle
+bindsym $mod+Shift+f fullscreen global
 
 # change container layout (stacked, tabbed, toggle split)
 bindsym $mod+s layout stacking
@@ -86,10 +87,10 @@ bindsym $mod+a focus parent
 bindsym $mod+z focus child
 
 # switch to workspace
-bindsym $mod+1 workspace 1: web
-bindsym $mod+2 workspace 2: irc
-bindsym $mod+3 workspace 3: code
-bindsym $mod+4 workspace 4: music
+bindsym $mod+1 workspace 1
+bindsym $mod+2 workspace 2
+bindsym $mod+3 workspace 3
+bindsym $mod+4 workspace 4
 bindsym $mod+5 workspace 5
 bindsym $mod+6 workspace 6
 bindsym $mod+7 workspace 7
@@ -97,11 +98,22 @@ bindsym $mod+8 workspace 8
 bindsym $mod+9 workspace 9
 bindsym $mod+0 workspace 10
 
+workspace 1 output DP-0
+workspace 2 output DP-0
+workspace 3 output DVI-D-0
+workspace 4 output DVI-D-0
+workspace 5 output DVI-D-0
+workspace 6 output DVI-D-0
+workspace 7 output DVI-D-0
+workspace 8 output DVI-D-0
+workspace 9 output DVI-D-0
+workspace 10 output DVI-D-0
+
 # move focused container to workspace
-bindsym $mod+Shift+1 move container to workspace 1: web
-bindsym $mod+Shift+2 move container to workspace 2: irc
-bindsym $mod+Shift+3 move container to workspace 3: code
-bindsym $mod+Shift+4 move container to workspace 4: music
+bindsym $mod+Shift+1 move container to workspace 1
+bindsym $mod+Shift+2 move container to workspace 2
+bindsym $mod+Shift+3 move container to workspace 3
+bindsym $mod+Shift+4 move container to workspace 4
 bindsym $mod+Shift+5 move container to workspace 5
 bindsym $mod+Shift+6 move container to workspace 6
 bindsym $mod+Shift+7 move container to workspace 7
@@ -165,19 +177,20 @@ new_window normal 1
 hide_edge_borders both
 
 for_window [class="Leafpad"] floating enable
+for_window [class="Pavucontrol"] floating enable
 
 # Custom keybindings
-bindsym XF86AudioRaiseVolume $execi amixer -q set Master 5+
-bindsym XF86AudioLowerVolume $execi amixer -q set Master 5-
-bindsym XF86AudioMute $execi amixer -q set Master toggle
-bindsym $mod+F9 $execi ~/.i3/toggle-analog-output.sh
+bindsym XF86AudioRaiseVolume $execi pamixer --increase 5
+bindsym XF86AudioLowerVolume $execi pamixer --decrease 5
+bindsym XF86AudioMute $execi pamixer --toggle-mute
+bindsym $mod+F9 $execi ~/.i3/toggle-analog-output-pulse.sh
 bindsym XF86MyComputer exec urxvt -e ranger
-bindsym XF86HomePage exec firefox-bin
+bindsym XF86HomePage exec firefox
 bindsym XF86Calculator exec gnome-calculator
 bindsym XF86AudioMedia $execi deadbeef
 bindsym Print $execi scrot ~/imgur.png -e '~/bin/imgur-oauth.rb $f'
 bindsym $mod+Print --release $execi scrot ~/imgur.png -s -e '~/bin/imgur-oauth.rb $f'
-bindsym Scroll_Lock $execi i3lock -ui ~/.i3/windows-bluescreen.png
+bindsym Scroll_Lock $execi i3lock -uc 000000
 bindsym $mod+Scroll_Lock exec sudo pm-suspend
 bindsym $mod+Shift+Scroll_Lock exec sudo poweroff
 bindsym Pause --release exec xkill
@@ -187,7 +200,9 @@ bindsym $mod+F2 $execi ~/.i3/layouts/2.sh
 # Autostart
 $execi sh ~/.fehbg
 $execi parcellite
-$execi nvidia-settings -a GPUPowerMizerMode=1
+$execi redshift-gtk
+#$execi nvidia-settings -a GPUPowerMizerMode=1
+#$execi nvidia-settings --assign CurrentMetaMode='nvidia-auto-select +0+0 { ForceCompositionPipeline = On }'
 
 client.focused          #0088CC #0088CC #ffffff #dddddd
 client.focused_inactive #333333 #333333 #888888 #292d2e
@@ -197,7 +212,8 @@ client.urgent           #2f343a #900000 #ffffff #900000
 bar {
 	#font -misc-fixed-medium-r-normal--13-120-75-75-C-70-iso10646-1
 	font -xos4-terminus-medium-r-normal-*-12-120-72-72-c-60-iso10646-1
-	status_command ~/.i3/conky-i3.sh
+	tray_output DP-0
+	status_command i3status
 
 	colors {
 	background #222222

@@ -30,8 +30,8 @@ zstyle ':vcs_info:*' check-for-changes true
 zstyle ':vcs_info:git*' formats "%c%u%b"
 zstyle ':vcs_info:git*' stagedstr "✔ "
 zstyle ':vcs_info:git*' unstagedstr "✘ "
-precmd() { VIMODE= ; vcs_info; print -Pn "\e]0;urxvt\a" }
-preexec () { print -Pn "\e]0;$1\a" }
+precmd() { VIMODE= ; vcs_info; printf "\e]0;urxvt\a" }
+preexec() { printf "\e]0;%s\a" "$1" }
 
 zstyle :compinstall filename "$HOME/.zshrc"
 autoload -Uz compinit && compinit
@@ -113,9 +113,8 @@ if (( ${+terminfo[smkx]} )) && (( ${+terminfo[rmkx]} )); then
     zle -N zle-line-finish
 fi
 
-source /usr/share/zsh/site-contrib/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
-
 alias ls='ls --color=auto'
 alias grep='grep --color=auto'
 alias ..="cd .."
 alias ...="cd ../../"
+alias mpv60='mpv --input-ipc-server=/tmp/mpvsocket'
