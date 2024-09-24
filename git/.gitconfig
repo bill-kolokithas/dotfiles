@@ -1,8 +1,8 @@
 [user]
 	name = Bill Kolokithas
-	email = kolokithas.b@gmail.com
+	email = billk@skroutz.gr
 [push]
-	default = matching
+	default = current
 [branch]
 	autosetuprebase = always
 [color]
@@ -12,19 +12,23 @@
 [credential]
 	helper = cache --timeout=7200
 [core]
-	editor = vim
-[merge]
-	tool = meld
+	editor = nvim
+	excludesfile = /home/billk/.gitignore_global
 [diff]
-	tool = meld
+	tool = nvimdiff
+	noprefix = true
 [difftool]
 	prompt = false
-
-[sendemail]
-	smtpencryption = tls
-	smtpserver = smtp.gmail.com
-	smtpuser = kolokithas.b@gmail.com
-	smtpserverport = 587
+[difftool "nvimdiff"]
+  cmd = "nvim -d \"$LOCAL\" \"$REMOTE\""
 [alias]
 	co = checkout
 	st = status
+	re = rebase
+	me = merge
+	fe = fetch
+[url "git@github.skroutz.gr:"]
+	insteadOf = deploy:
+	insteadOf = skroutz:
+[rebase]
+	autosquash = true

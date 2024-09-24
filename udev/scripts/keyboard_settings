@@ -1,0 +1,12 @@
+#!/usr/bin/env bash
+
+(
+  sleep 1
+
+  xset r rate 340 40
+  xset -dpms
+  xset s off
+  setxkbmap -option
+  setxkbmap -layout us,gr -option grp:shifts_toggle,caps:escape,grp_led:caps
+  xbindkeys -p
+) &

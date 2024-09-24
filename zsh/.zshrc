@@ -21,7 +21,7 @@ HISTFILE=~/.histfile
 HISTSIZE=8000
 SAVEHIST=8000
 setopt append_history inc_append_history share_history
-setopt hist_ignore_dups hist_ignore_space hist_verify
+setopt hist_ignore_all_dups hist_ignore_space hist_verify
 
 # git integration
 autoload -Uz vcs_info
@@ -30,8 +30,8 @@ zstyle ':vcs_info:*' check-for-changes true
 zstyle ':vcs_info:git*' formats "%c%u%b"
 zstyle ':vcs_info:git*' stagedstr "✔ "
 zstyle ':vcs_info:git*' unstagedstr "✘ "
-precmd() { VIMODE= ; vcs_info; printf "\e]0;urxvt\a" }
-preexec() { printf "\e]0;%s\a" "$1" }
+precmd() { VIMODE= ; vcs_info; print -Pn "\e]0;urxvt\a" }
+preexec () { print -Pn "\e]0;$1\a" }
 
 zstyle :compinstall filename "$HOME/.zshrc"
 autoload -Uz compinit && compinit
@@ -40,6 +40,7 @@ setopt nohup longlistjobs notify
 
 # Allow use of ctrl-s / ctrl-q
 stty -ixon
+stty icrnl
 
 zstyle ':completion:*:*:*:*:*' menu select
 zstyle ':completion:*' completer _expand _complete _correct _approximate
@@ -72,6 +73,7 @@ autoload -U edit-command-line
 zle -N edit-command-line
 bindkey '\C-x\C-e' edit-command-line
 bindkey "^[m" copy-prev-shell-word
+bindkey '\C-w' backward-kill-word
 
 key[Home]=${terminfo[khome]}
 key[End]=${terminfo[kend]}
@@ -113,8 +115,39 @@ if (( ${+terminfo[smkx]} )) && (( ${+terminfo[rmkx]} )); then
     zle -N zle-line-finish
 fi
 
+fancy-ctrl-z () {
+	if [[ $#BUFFER -eq 0 ]]; then
+		BUFFER="fg"
+		zle accept-line
+	else
+		zle push-input
+		zle clear-screen
+	fi
+}
+zle -N fancy-ctrl-z
+bindkey '^Z' fancy-ctrl-z
+
+#source /usr/share/zsh/site-contrib/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+
 alias ls='ls --color=auto'
 alias grep='grep --color=auto'
 alias ..="cd .."
 alias ...="cd ../../"
-alias mpv60='mpv --input-ipc-server=/tmp/mpvsocket'
+alias stg="ssh wowbagger@vms.skroutz.gr"
+alias vi='nvim'
+alias viconf='vi ~/.config/nvim/init.vim'
+alias cp='cp -i'
+alias mv='mv -i'
+alias rm='rm -i'
+alias be='bundle exec'
+
+loop() {
+	for ((;;)) { "$@"; read; }
+}
+
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+eval "$(rbenv init - zsh)"
+
+export NVM_DIR="$HOME/.config/nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
+[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion

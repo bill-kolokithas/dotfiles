@@ -1,22 +1,23 @@
-URxvt.perl-ext-common:      default,clipboard,url-select,keyboard-select,vtwheel
-URxvt.url-select.launcher:  firefox
+URxvt.perl-ext-common:      default,matcher,clipboard,keyboard-select,vtwheel,resize-font
+URxvt.url-launcher:  /usr/bin/google-chrome
+URxvt.matcher.button: 1
 URxvt.url-select.underline: true
-URxvt.matcher.button:       1
 URxvt.keysym.M-u:           perl:url-select:select_next
 URxvt.keysym.M-Escape:      perl:keyboard-select:activate
 URxvt.keysym.M-s:           perl:keyboard-select:search
 URxvt.keysym.C-C:           perl:clipboard:copy
 URxvt.keysym.C-V:           perl:clipboard:paste
 URxvt.keysym.C-A-V:         perl:clipboard:paste_escaped
+! URxvt.keysym.Control-l: command:\033c 
 
 URxvt.scrollstyle: plain
 URxvt.termName: rxvt-unicode-256color
-URxvt.font: -xos4-terminus-medium-r-normal-*-18-180-72-72-c-100-iso10646-1
+URxvt.font: -xos4-terminus-medium-r-normal-*-16-*-*-*-c-*-iso10646-1, xft:Inconsolata for Powerline
 URxvt.scrollBar_right: true
 URxvt.urgentOnBell: true
 URxvt.iso14755 : false
 URxvt.iso14755_52: false
-URxvt.saveLines: 10000
+URxvt.saveLines: 20000
 
 ! do not scroll with output
 URxvt.scrollTtyOutput: false
@@ -50,8 +51,8 @@ URxvt.scrollTtyKeypress: true
 
 URxvt.background:              S_base03
 URxvt.foreground:              S_base0
-URxvt.fading:                  40
-URxvt.fadeColor:               S_base03
+! URxvt.fading:                  40
+! URxvt.fadeColor:               S_base03
 URxvt.cursorColor:             S_base1
 URxvt.pointerColorBackground:  S_base01
 URxvt.pointerColorForeground:  S_base1
@@ -72,25 +73,3 @@ URxvt.color12:                 S_base0
 URxvt.color13:                 S_violet
 URxvt.color14:                 S_base1
 URxvt.color15:                 S_base3
-
-
-! Alternative euphrasia color scheme
-! URxvt.background: #1d3032
-! URxvt.foreground: #E6E6E6
-! URxvt.cursorColor: #1AAA13
-! URxvt.color0: #222946
-! URxvt.color8: #8C8B89
-! URxvt.color1: #B32323
-! URxvt.color9: #DC2C2C
-! URxvt.color2: #1AAA13
-! URxvt.color10: #5DCE33
-! URxvt.color3: #FF9F3E
-! URxvt.color11: #E6CB29
-! URxvt.color4: #4957F3
-! URxvt.color12: #4D79FF
-! URxvt.color5: #BF3E94
-! URxvt.color13: #B641CC
-! URxvt.color6: #09A5B3
-! URxvt.color14: #3CB6F3
-! URxvt.color7: #AEAEAE
-! URxvt.color15: #DBDDE4

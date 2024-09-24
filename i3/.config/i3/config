@@ -6,6 +6,9 @@
 
 set $mod Mod4
 set $execi exec --no-startup-id
+set $mon1 eDP-1
+set $mon2 DP-1-2
+set $mon3 DP-1-3
 
 # Font for window titles. Will also be used by the bar unless a different font
 # is used in the bar {} block below. ISO 10646 = Unicode
@@ -98,16 +101,16 @@ bindsym $mod+8 workspace 8
 bindsym $mod+9 workspace 9
 bindsym $mod+0 workspace 10
 
-workspace 1 output DP-0
-workspace 2 output DP-0
-workspace 3 output DVI-D-0
-workspace 4 output DVI-D-0
-workspace 5 output DVI-D-0
-workspace 6 output DVI-D-0
-workspace 7 output DVI-D-0
-workspace 8 output DVI-D-0
-workspace 9 output DVI-D-0
-workspace 10 output DVI-D-0
+workspace 1 output $mon1
+workspace 2 output $mon2
+workspace 3 output $mon2
+workspace 4 output $mon3
+workspace 5 output $mon3
+workspace 6 output $mon3
+workspace 7 output $mon3
+workspace 8 output $mon3
+workspace 9 output $mon3
+workspace 10 output $mon3
 
 # move focused container to workspace
 bindsym $mod+Shift+1 move container to workspace 1
@@ -161,10 +164,10 @@ mode "resize" {
 
 bindsym $mod+r mode "resize"
 workspace_auto_back_and_forth yes
-bindsym $mod+Mod1+Left  workspace prev
-bindsym $mod+Mod1+Right workspace next
-bindsym $mod+Mod1+h workspace prev
-bindsym $mod+Mod1+l workspace next
+bindsym $mod+Ctrl+Left  workspace prev
+bindsym $mod+Ctrl+Right workspace next
+bindsym $mod+Ctrl+h workspace prev
+bindsym $mod+Ctrl+l workspace next
 bindsym $mod+grave workspace back_and_forth
 
 # Make the currently focused window a scratchpad
@@ -177,32 +180,31 @@ new_window normal 1
 hide_edge_borders both
 
 for_window [class="Leafpad"] floating enable
-for_window [class="Pavucontrol"] floating enable
+for_window [title="Android Emulator - skrappy"] floating enable
 
 # Custom keybindings
-bindsym XF86AudioRaiseVolume $execi pamixer --increase 5
-bindsym XF86AudioLowerVolume $execi pamixer --decrease 5
-bindsym XF86AudioMute $execi pamixer --toggle-mute
-bindsym $mod+F9 $execi ~/.i3/toggle-analog-output-pulse.sh
-bindsym XF86MyComputer exec urxvt -e ranger
-bindsym XF86HomePage exec firefox
+bindsym XF86AudioRaiseVolume $execi pactl set-sink-volume @DEFAULT_SINK@ +5%
+bindsym XF86AudioLowerVolume $execi pactl set-sink-volume @DEFAULT_SINK@ -5%
+bindsym XF86AudioMute $execi pactl set-sink-mute @DEFAULT_SINK@ toggle
+bindsym XF86MonBrightnessUp $execi brightnessctl set +5%
+bindsym XF86MonBrightnessDown $execi brightnessctl set 5%-
 bindsym XF86Calculator exec gnome-calculator
 bindsym XF86AudioMedia $execi deadbeef
-bindsym Print $execi scrot ~/imgur.png -e '~/bin/imgur-oauth.rb $f'
-bindsym $mod+Print --release $execi scrot ~/imgur.png -s -e '~/bin/imgur-oauth.rb $f'
-bindsym Scroll_Lock $execi i3lock -uc 000000
-bindsym $mod+Scroll_Lock exec sudo pm-suspend
-bindsym $mod+Shift+Scroll_Lock exec sudo poweroff
+bindsym Print $execi scrot ~/Pictures/image.png
+bindsym $mod+Print --release $execi scrot ~/Pictures/image.png -s
+bindsym Scroll_Lock $execi i3lock -tuc 000000
 bindsym Pause --release exec xkill
-bindsym $mod+F1 $execi ~/.i3/layouts/1.sh
-bindsym $mod+F2 $execi ~/.i3/layouts/2.sh
+bindsym $mod+Shift+Pause exec systemctl suspend
+bindsym $mod+F1 exec google-chrome
+bindsym $mod+F2 exec urxvt -e ranger
+bindsym $mod+F9 $execi source ~/.xprofile-no-xrandr
+bindsym $mod+F12 $execi bluetoothctl connect 9C:19:C2:19:03:5D
 
 # Autostart
-$execi sh ~/.fehbg
 $execi parcellite
-$execi redshift-gtk
-#$execi nvidia-settings -a GPUPowerMizerMode=1
-#$execi nvidia-settings --assign CurrentMetaMode='nvidia-auto-select +0+0 { ForceCompositionPipeline = On }'
+$execi nm-applet
+$execi dockd --daemon
+#$execi dunst
 
 client.focused          #0088CC #0088CC #ffffff #dddddd
 client.focused_inactive #333333 #333333 #888888 #292d2e
@@ -210,19 +212,21 @@ client.unfocused        #333333 #333333 #888888 #292d2e
 client.urgent           #2f343a #900000 #ffffff #900000
 
 bar {
+	#tray_output HDMI1
+
 	#font -misc-fixed-medium-r-normal--13-120-75-75-C-70-iso10646-1
 	font -xos4-terminus-medium-r-normal-*-12-120-72-72-c-60-iso10646-1
-	tray_output DP-0
 	status_command i3status
 
 	colors {
-	background #222222
-	statusline #dddddd
-	separator  #666666
-	active_workspace   #333333 #333333 #888888
-	focused_workspace  #0088CC #0088CC #ffffff
-	inactive_workspace #333333 #333333 #888888
-	urgent_workspace   #2f343a #900000 #ffffff
+		background #222222
+		statusline #dddddd
+		separator  #666666
+		active_workspace   #333333 #333333 #888888
+		focused_workspace  #0088CC #0088CC #ffffff
+		inactive_workspace #333333 #333333 #888888
+		urgent_workspace   #2f343a #900000 #ffffff
 	}
 }
 
+# vim:ft=i3config
