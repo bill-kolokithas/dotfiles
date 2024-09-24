@@ -4,8 +4,6 @@ To get the whole repo, run the following commands:
 
     git clone https://github.com/freestyl3r/dotfiles.git
     cd dotfiles
-    git submodule init
-    git submodule update
 
 You can manually copy the files / create symlinks into the corresponding locations or you can use a tool to help you with that.  
 
@@ -43,17 +41,3 @@ Use the verbose flag for more info:
 Stow provides a flag to quickly remove all symlinks installed by a package:
 
     stow -v -D tmux
-
-### Package specific instructions
-
-#### Sound
-
-`sound` not an actual package. It is a folder containing 2 packages. You have to `cd` in it and then run the following command:
-
-    stow -t /etc mpd
-
-Another way of doing that without entering the `dotfiles/sound` directory, is to specify the path in stow.  
-The first example assumes that you are in the `dotfiles` directory. The second one can be run from anywhere.
-
-    stow -d sound -t /etc mpd
-    stow -d ~/dotfiles/sound -t ~ alsa
