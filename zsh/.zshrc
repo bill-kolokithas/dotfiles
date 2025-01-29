@@ -1,10 +1,9 @@
 autoload -U promptinit && promptinit
 autoload -U colors && colors
 PROMPT="%{$fg[blue]%}[%T]%{$reset_color%} %n@%{$fg[cyan]%}%m%{$reset_color%} %1~ %# "
-RPROMPT='%{$fg[green]%}$VIMODE %{$fg[magenta]%}${vcs_info_msg_0_}%{$reset_color%}'
+RPROMPT='%{$fg[magenta]%}${vcs_info_msg_0_}%{$reset_color%}'
 
 function zle-line-init zle-keymap-select zle-line-finish {
-	VIMODE="${${KEYMAP/vicmd/-- NORMAL --}/(main|viins)/}"
 	zle reset-prompt
 }
 zle -N zle-line-init
@@ -12,7 +11,6 @@ zle -N zle-keymap-select
 zle -N zle-line-finish
 
 function TRAPINT() {
-	VIMODE=
 	zle && zle reset-prompt
 	return $(( 128 + $1 ))
 }
@@ -30,7 +28,7 @@ zstyle ':vcs_info:*' check-for-changes true
 zstyle ':vcs_info:git*' formats "%c%u%b"
 zstyle ':vcs_info:git*' stagedstr "✔ "
 zstyle ':vcs_info:git*' unstagedstr "✘ "
-precmd() { VIMODE= ; vcs_info; print -Pn "\e]0;urxvt\a" }
+precmd() { vcs_info; print -Pn "\e]0;Terminal\a" }
 preexec () { print -Pn "\e]0;$1\a" }
 
 zstyle :compinstall filename "$HOME/.zshrc"
@@ -62,7 +60,7 @@ hosts=(
 zstyle ':completion:*:hosts' hosts $hosts
 
 ################################# keybindings #################################
-bindkey -v
+bindkey -e
 typeset -A key
 
 autoload -Uz up-line-or-beginning-search
@@ -97,11 +95,6 @@ key[PageDown]=${terminfo[knp]}
 [[ -n "${key[PageUp]}"   ]]  && bindkey  "${key[PageUp]}"   beginning-of-buffer-or-history
 [[ -n "${key[PageDown]}" ]]  && bindkey  "${key[PageDown]}" end-of-buffer-or-history
 
-# Vi mode hotkeys
-bindkey -M vicmd "k" up-line-or-beginning-search
-bindkey -M vicmd "j" down-line-or-beginning-search
-bindkey -M vicmd '/' history-incremental-search-backward
-
 # Finally, make sure the terminal is in application mode, when zle is
 # active. Only then are the values from $terminfo valid.
 if (( ${+terminfo[smkx]} )) && (( ${+terminfo[rmkx]} )); then
@@ -135,7 +128,7 @@ alias ..="cd .."
 alias ...="cd ../../"
 alias stg="ssh wowbagger@vms.skroutz.gr"
 alias vi='nvim'
-alias viconf='vi ~/.config/nvim/init.vim'
+alias viconf='vi ~/.config/nvim/init.lua'
 alias cp='cp -i'
 alias mv='mv -i'
 alias rm='rm -i'
@@ -147,7 +140,9 @@ loop() {
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 eval "$(rbenv init - zsh)"
+eval "$(pyenv init -)"
+source "$HOME/.asdf/asdf.sh"
 
-export NVM_DIR="$HOME/.config/nvm"
+export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
