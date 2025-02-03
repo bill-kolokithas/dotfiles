@@ -1,8 +1,16 @@
 return {
   "neovim/nvim-lspconfig",
   config = function()
-    require("lspconfig").solargraph.setup({})
+    local capabilities = require('blink.cmp').get_lsp_capabilities()
+    require("lspconfig").ruby_lsp.setup({
+      capabilities = capabilities,
+      settings = {
+        rails = true
+      }
+    })
+
     require("lspconfig").lua_ls.setup({
+      capabilities = capabilities,
       settings = {
         Lua = {
           runtime = {
