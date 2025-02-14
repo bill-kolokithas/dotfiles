@@ -1,7 +1,5 @@
 return {
   { "tpope/vim-repeat" },
-  { "tpope/vim-fugitive" },
-  { "tpope/vim-surround" },
   { "tpope/vim-unimpaired" },
   { "numToStr/Comment.nvim" },
   { "bronson/vim-visual-star-search" },
@@ -21,4 +19,5 @@ return {
   { 'echasnovski/mini.ai', config = true },
   { 'echasnovski/mini.align', config = true },
   { 'echasnovski/mini.splitjoin', config = true },
+  { 'kylechui/nvim-surround', config = true },
 }

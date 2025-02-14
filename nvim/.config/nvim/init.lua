@@ -40,7 +40,7 @@ vim.keymap.set('i', '<C-S>', '<Esc>:update<CR>', { silent = true })
 vim.keymap.set('n', '<C-Q>', ':quit<CR>', { silent = true })
 vim.keymap.set('v', '<C-Q>', '<Esc>:quit<CR>', { silent = true })
 vim.keymap.set('i', '<C-Q>', '<C-O>:quit<CR>', { silent = true })
-vim.keymap.set('n', '<C-B>', ':quitall<CR>', { silent = true, desc = "Quit all" })
+vim.keymap.set('n', '<C-A>', ':quitall<CR>', { silent = true, desc = "Quit all" })
 vim.keymap.set('t', '<Esc>', '<C-\\><C-n>', { silent = true })
 
 vim.keymap.set('n', '<C-l>', ':nohlsearch<CR>', { silent = true })
@@ -115,9 +115,12 @@ vim.keymap.set('n', '<F7>', ':GrugFar<CR>', { silent = true, desc = 'toggle Grug
 vim.keymap.set('n', '<F8>', ':AerialToggle left<CR>', { silent = true, desc = 'toggle Aerial' })
 vim.keymap.set({ "n", "v" }, '<F9>', ':<C-U>CopilotChatToggle<CR>', { silent = true, desc = 'toggle CopilotChat' })
 
+vim.keymap.set('n', '<leader>gb', ':Gitsigns blame<CR>', { silent = true, desc = 'Git blame' })
+vim.keymap.set('n', '<leader>go', function() require('snacks').gitbrowse() end, { silent = true, desc = 'Git open file' })
+vim.keymap.set('n', '<leader>n', function() require('snacks').notifier.show_history() end, { silent = true, desc = 'Git open file' })
+
 -- Gutentags settings
 vim.g.gutentags_cache_dir = '~/.tags'
-vim.g.gutentags_file_list_command = 'find . -type f -name "*.rb"'
 
 -- UndoTree settings
 vim.g.undotree_WindowLayout = 2
@@ -159,6 +162,16 @@ vim.api.nvim_create_autocmd({ "TermOpen", "BufEnter" }, {
   end
 })
 
+vim.api.nvim_create_autocmd("LspAttach", {
+  callback = function(args)
+    local client = vim.lsp.get_client_by_id(args.data.client_id)
+    if client and client.name == 'ruby_lsp' then
+      vim.notify("Ruby LSP attached", vim.log.levels.INFO, { title = "LSP" })
+    end
+  end,
+})
+
+-- lua/plugins/init.lua
 require("lazy").setup({
   spec = {
     { import = 'plugins' }

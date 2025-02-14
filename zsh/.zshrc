@@ -138,7 +138,6 @@ loop() {
 	for ((;;)) { "$@"; read; }
 }
 
-[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 eval "$(rbenv init - zsh)"
 eval "$(pyenv init -)"
 source "$HOME/.asdf/asdf.sh"

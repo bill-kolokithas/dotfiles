@@ -15,6 +15,13 @@ return {
       scope = {
         min_size = 3
       }
-    }
+    },
+    gitbrowse = {},
+    notify = {},
+    notifier = {
+      timeout = 4000,
+      width = { min = 20 }
+    },
+    scroll = {}
   }
 }
