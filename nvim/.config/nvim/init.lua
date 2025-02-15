@@ -162,15 +162,6 @@ vim.api.nvim_create_autocmd({ "TermOpen", "BufEnter" }, {
   end
 })
 
-vim.api.nvim_create_autocmd("LspAttach", {
-  callback = function(args)
-    local client = vim.lsp.get_client_by_id(args.data.client_id)
-    if client and client.name == 'ruby_lsp' then
-      vim.notify("Ruby LSP attached", vim.log.levels.INFO, { title = "LSP" })
-    end
-  end,
-})
-
 -- lua/plugins/init.lua
 require("lazy").setup({
   spec = {
