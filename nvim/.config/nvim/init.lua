@@ -40,7 +40,7 @@ vim.keymap.set('i', '<C-S>', '<Esc>:update<CR>', { silent = true })
 vim.keymap.set('n', '<C-Q>', ':quit<CR>', { silent = true })
 vim.keymap.set('v', '<C-Q>', '<Esc>:quit<CR>', { silent = true })
 vim.keymap.set('i', '<C-Q>', '<C-O>:quit<CR>', { silent = true })
-vim.keymap.set('n', '<C-A>', ':quitall<CR>', { silent = true, desc = "Quit all" })
+vim.keymap.set('n', '<C-C>', ':quitall<CR>', { silent = true, desc = "Quit all" })
 vim.keymap.set('t', '<Esc>', '<C-\\><C-n>', { silent = true })
 
 vim.keymap.set('n', '<C-l>', ':nohlsearch<CR>', { silent = true })
@@ -118,6 +118,32 @@ vim.keymap.set({ "n", "v" }, '<F9>', ':<C-U>CopilotChatToggle<CR>', { silent = t
 vim.keymap.set('n', '<leader>gb', ':Gitsigns blame<CR>', { silent = true, desc = 'Git blame' })
 vim.keymap.set('n', '<leader>go', function() require('snacks').gitbrowse() end, { silent = true, desc = 'Git open file' })
 vim.keymap.set('n', '<leader>n', function() require('snacks').notifier.show_history() end, { silent = true, desc = 'Git open file' })
+vim.keymap.set('n', '<leader>m', ':Grapple open_tags<CR>', { silent = true, desc = 'Open Grapple tags' })
+vim.keymap.set('n', '<leader>M', ':GrappleTagBuffer', { desc = 'Set Grapple tag' })
+
+vim.api.nvim_create_user_command(
+  "GrappleTagBuffer",
+  function(opts)
+    -- This calls Grapple's tag functionality with a custom "buffer=" scope.
+    require("grapple").tag("buffer=" .. opts.args)
+  end,
+  {
+    nargs = 1,
+    desc = "Tag buffer with Grapple",
+    complete = function(arglead)
+      local matches = {}
+      -- Loop through all buffers and collect their names (as potential IDs)
+      for _, buf in ipairs(vim.api.nvim_list_bufs()) do
+        local name = vim.api.nvim_buf_get_name(buf)
+        -- Only include buffers that have a name
+        if name ~= "" and name:find(arglead) then
+          table.insert(matches, name)
+        end
+      end
+      return matches
+    end
+  }
+)
 
 -- Gutentags settings
 vim.g.gutentags_cache_dir = '~/.tags'
@@ -151,7 +177,7 @@ local function toggle_maximize()
   end
 end
 
-vim.keymap.set("n", "<C-W>m", toggle_maximize, { silent = true })
+vim.keymap.set("n", "<C-W>m", toggle_maximize, { silent = true, desc = 'Maximize window' })
 
 vim.api.nvim_create_autocmd({ "TermOpen", "BufEnter" }, {
   pattern = { "*" },

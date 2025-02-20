@@ -20,4 +20,5 @@ return {
   { 'echasnovski/mini.align', config = true },
   { 'echasnovski/mini.splitjoin', config = true },
   { 'kylechui/nvim-surround', config = true },
+  { 'nguyenvukhang/nvim-toggler', config = true },
 }

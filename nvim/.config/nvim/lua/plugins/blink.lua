@@ -21,9 +21,7 @@ return {
       list = {
         selection = {
           auto_insert = false,
-          preselect = function(ctx)
-            return ctx.mode ~= "cmdline" or not vim.tbl_contains({ '/', '?' }, vim.fn.getcmdtype())
-          end,
+          preselect = function(ctx) return ctx.mode ~= "cmdline" end,
         }
       },
       ghost_text = { enabled = true },
