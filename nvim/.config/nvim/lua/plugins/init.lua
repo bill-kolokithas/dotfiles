@@ -7,7 +7,6 @@ return {
   { "lervag/file-line" },
   { "nvim-tree/nvim-web-devicons" },
   { "romgrk/barbar.nvim" },
-  { "nvim-neo-tree/neo-tree.nvim" },
   { "nvim-lua/plenary.nvim" },
   { "MunifTanjim/nui.nvim" },
   { "nvim-treesitter/nvim-treesitter-context" },

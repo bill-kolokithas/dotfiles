@@ -22,6 +22,7 @@ vim.opt.shortmess:append("c")
 vim.opt.expandtab = true
 vim.opt.relativenumber = true
 vim.opt.tabstop = 2
+vim.opt.mouse = ''
 vim.opt.softtabstop = 2
 vim.opt.shiftwidth = 2
 vim.opt.foldmethod = "expr"
@@ -125,7 +126,7 @@ vim.api.nvim_create_user_command(
   "GrappleTagBuffer",
   function(opts)
     -- This calls Grapple's tag functionality with a custom "buffer=" scope.
-    require("grapple").tag("buffer=" .. opts.args)
+    require("grapple").tag({ path = opts.args })
   end,
   {
     nargs = 1,
@@ -178,6 +179,7 @@ local function toggle_maximize()
 end
 
 vim.keymap.set("n", "<C-W>m", toggle_maximize, { silent = true, desc = 'Maximize window' })
+vim.keymap.set("n", "<C-W>\\", ':vsplit | terminal<CR>', { silent = true, desc = 'Split terminal' })
 
 vim.api.nvim_create_autocmd({ "TermOpen", "BufEnter" }, {
   pattern = { "*" },
