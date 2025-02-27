@@ -26,7 +26,7 @@ vim.opt.mouse = ''
 vim.opt.softtabstop = 2
 vim.opt.shiftwidth = 2
 vim.opt.foldmethod = "expr"
-vim.opt.foldexpr = "nvim_treesitter#foldexpr()"
+vim.opt.foldexpr = 'v:lua.vim.treesitter.foldexpr()'
 vim.opt.foldenable = false
 vim.opt.foldlevel = 1
 vim.opt.sessionoptions:append({ "winpos" })
@@ -35,18 +35,18 @@ vim.opt.langmap = "ΑA,ΒB,ΨC,ΔD,ΕE,ΦF,ΓG,ΗH,ΙI,ΞJ,ΚK,ΛL,ΜM,ΝN,ΟO,�
 
 -- Key mappings
 -- Save & exit like in most GUI editors
-vim.keymap.set('n', '<C-S>', ':update<CR>', { silent = true })
-vim.keymap.set('v', '<C-S>', '<Esc>:update<CR>', { silent = true })
-vim.keymap.set('i', '<C-S>', '<Esc>:update<CR>', { silent = true })
-vim.keymap.set('n', '<C-Q>', ':quit<CR>', { silent = true })
-vim.keymap.set('v', '<C-Q>', '<Esc>:quit<CR>', { silent = true })
-vim.keymap.set('i', '<C-Q>', '<C-O>:quit<CR>', { silent = true })
-vim.keymap.set('n', '<C-C>', ':quitall<CR>', { silent = true, desc = "Quit all" })
-vim.keymap.set('t', '<Esc>', '<C-\\><C-n>', { silent = true })
+vim.keymap.set('n', '<C-S>', ':update<CR>')
+vim.keymap.set('v', '<C-S>', '<Esc>:update<CR>')
+vim.keymap.set('i', '<C-S>', '<Esc>:update<CR>')
+vim.keymap.set('n', '<C-Q>', ':quit<CR>')
+vim.keymap.set('v', '<C-Q>', '<Esc>:quit<CR>')
+vim.keymap.set('i', '<C-Q>', '<C-O>:quit<CR>')
+vim.keymap.set('n', '<C-C>', ':quitall<CR>')
+vim.keymap.set('t', '<Esc>', '<C-\\><C-n>')
 
-vim.keymap.set('n', '<C-l>', ':nohlsearch<CR>', { silent = true })
-vim.keymap.set('n', '<C-i>', ':set relativenumber!<CR>', { silent = true })
-vim.keymap.set('i', '<C-i>', '<Esc>:set relativenumber!<CR>a', { silent = true })
+vim.keymap.set('n', '<C-l>', ':nohlsearch<CR>')
+vim.keymap.set('n', '<C-i>', ':set relativenumber!<CR>')
+vim.keymap.set('i', '<C-i>', '<Esc>:set relativenumber!<CR>a')
 
 vim.keymap.set('n', '@', function()
   local last_cmd = vim.fn.getreg(':')
@@ -57,36 +57,40 @@ vim.keymap.set('n', '@', function()
   end
 end, { silent = false, desc = "Repeat last Ex command" })
 
-vim.keymap.set('n', '&', ':&&<CR>', { silent = true })
-vim.keymap.set('x', '&', ':&&<CR>', { silent = true })
-vim.keymap.set('n', 'Y', 'y$', { silent = true })
-vim.keymap.set('n', 'Q', '@q', { silent = true })
-vim.keymap.set('v', '<', '<gv', { silent = true })
-vim.keymap.set('v', '>', '>gv', { silent = true })
-vim.keymap.set("n", "gd", vim.lsp.buf.definition, { noremap = true, silent = true, desc = 'Go to definition' })
+vim.keymap.set('n', '&', ':&&<CR>')
+vim.keymap.set('x', '&', ':&&<CR>')
+vim.keymap.set('n', 'Y', 'y$')
+vim.keymap.set('n', 'Q', '@q')
+vim.keymap.set('v', '<', '<gv')
+vim.keymap.set('v', '>', '>gv')
+vim.keymap.set("n", "gd", vim.lsp.buf.definition, { desc = 'Go to definition' })
+vim.keymap.set("n", "gr", vim.lsp.buf.references, { desc = 'Find references' })
+vim.keymap.set("n", ")", ":lua require('nvim-treesitter.incremental_selection').scope_incremental()<CR>", { desc = 'Treesitter scope increment' })
+vim.keymap.set("n", "(", ":lua require('nvim-treesitter.incremental_selection').scope_decremental()<CR>", { desc = 'Treesitter scope decrement' })
+
 
 -- Save to system clipboard
-vim.keymap.set('n', '<leader>y', '"+y', { silent = true })
-vim.keymap.set('v', '<leader>y', '"+y', { silent = true })
-vim.keymap.set('n', '<leader>Y', '"+Y', { silent = true })
-vim.keymap.set('v', '<leader>Y', '"+Y', { silent = true })
-vim.keymap.set('n', '<leader>p', '"+p', { silent = true })
-vim.keymap.set('v', '<leader>p', '"+p', { silent = true })
-vim.keymap.set('n', '<leader>P', '"+P', { silent = true })
-vim.keymap.set('v', '<leader>P', '"+P', { silent = true })
+vim.keymap.set('n', '<leader>y', '"+y')
+vim.keymap.set('v', '<leader>y', '"+y')
+vim.keymap.set('n', '<leader>Y', '"+Y')
+vim.keymap.set('v', '<leader>Y', '"+Y')
+vim.keymap.set('n', '<leader>p', '"+p')
+vim.keymap.set('v', '<leader>p', '"+p')
+vim.keymap.set('n', '<leader>P', '"+P')
+vim.keymap.set('v', '<leader>P', '"+P')
 
 -- Use arrows to navigate on wrapped lines & change buffers
-vim.keymap.set('i', '<Up>', '<C-O>gk', { silent = true })
-vim.keymap.set('i', '<Down>', '<C-O>gj', { silent = true })
-vim.keymap.set('n', '<Up>', 'gk', { silent = true })
-vim.keymap.set('n', '<Down>', 'gj', { silent = true })
-vim.keymap.set('v', '<Up>', 'gk', { silent = true })
-vim.keymap.set('v', '<Down>', 'gj', { silent = true })
+vim.keymap.set('i', '<Up>', '<C-O>gk')
+vim.keymap.set('i', '<Down>', '<C-O>gj')
+vim.keymap.set('n', '<Up>', 'gk')
+vim.keymap.set('n', '<Down>', 'gj')
+vim.keymap.set('v', '<Up>', 'gk')
+vim.keymap.set('v', '<Down>', 'gj')
 
 -- UndoTree and Neotree commands
-vim.keymap.set('n', '<F1>', ':Neotree filesystem reveal_force_cwd left toggle<CR>', { silent = true, desc = 'toggle Neotree' })
-vim.keymap.set('n', '<F2>', function() require('oil').toggle_float() end, { silent = true, desc = 'toggle Oil' })
-vim.keymap.set('n', '<F3>', ':Neogit<CR>', { silent = true, desc = 'toggle Neogit' })
+vim.keymap.set('n', '<F1>', ':Neotree filesystem reveal_force_cwd left toggle<CR>', { desc = 'toggle Neotree' })
+vim.keymap.set('n', '<F2>', function() require('oil').toggle_float() end, { desc = 'toggle Oil' })
+vim.keymap.set('n', '<F3>', ':Neogit<CR>', { desc = 'toggle Neogit' })
 
 vim.keymap.set('n', '<F4>', function()
   local bufname = vim.fn.bufname('%')
@@ -95,9 +99,9 @@ vim.keymap.set('n', '<F4>', function()
   else
     vim.cmd('DiffviewFileHistory')   -- Open Diffview if it's closed
   end
-end, { silent = true, desc = 'toggle diffview history' })
+end, { desc = 'toggle diffview history' })
 
-vim.keymap.set('n', '<F5>', ':UndotreeToggle<CR>', { silent = true, desc = 'toggle Undotree' })
+vim.keymap.set('n', '<F5>', ':UndotreeToggle<CR>', { desc = 'toggle Undotree' })
 
 local dim_enabled = false
 vim.keymap.set("n", "<F6>", function()
@@ -112,14 +116,14 @@ vim.keymap.set("n", "<F6>", function()
   end
 end, { desc = "Toggle dim" })
 
-vim.keymap.set('n', '<F7>', ':GrugFar<CR>', { silent = true, desc = 'toggle Grugfar' })
-vim.keymap.set('n', '<F8>', ':AerialToggle left<CR>', { silent = true, desc = 'toggle Aerial' })
-vim.keymap.set({ "n", "v" }, '<F9>', ':<C-U>CopilotChatToggle<CR>', { silent = true, desc = 'toggle CopilotChat' })
+vim.keymap.set('n', '<F7>', ':GrugFar<CR>', { desc = 'toggle Grugfar' })
+vim.keymap.set('n', '<F8>', ':AerialToggle left<CR>', { desc = 'toggle Aerial' })
+vim.keymap.set({ "n", "v" }, '<F9>', ':<C-U>CopilotChatToggle<CR>', { desc = 'toggle CopilotChat' })
 
-vim.keymap.set('n', '<leader>gb', ':Gitsigns blame<CR>', { silent = true, desc = 'Git blame' })
-vim.keymap.set('n', '<leader>go', function() require('snacks').gitbrowse() end, { silent = true, desc = 'Git open file' })
-vim.keymap.set('n', '<leader>n', function() require('snacks').notifier.show_history() end, { silent = true, desc = 'Git open file' })
-vim.keymap.set('n', '<leader>m', ':Grapple open_tags<CR>', { silent = true, desc = 'Open Grapple tags' })
+vim.keymap.set('n', '<leader>gb', ':Gitsigns blame<CR>', { desc = 'Git blame' })
+vim.keymap.set('n', '<leader>go', function() require('snacks').gitbrowse() end, { desc = 'Git open file' })
+vim.keymap.set('n', '<leader>n', function() require('snacks').notifier.show_history() end, { desc = 'Notify history' })
+vim.keymap.set('n', '<leader>m', ':Grapple open_tags<CR>', { desc = 'Open Grapple tags' })
 vim.keymap.set('n', '<leader>M', ':GrappleTagBuffer', { desc = 'Set Grapple tag' })
 
 vim.api.nvim_create_user_command(
@@ -157,16 +161,16 @@ vim.g.undotree_SplitWidth = 50
 
 -- Goto buffer by number
 for i = 1, 9 do
-  vim.keymap.set('n', '<A-'..i..'>', '<Cmd>BufferGoto '..i..'<CR>', { silent = true })
+  vim.keymap.set('n', '<A-'..i..'>', '<Cmd>BufferGoto '..i..'<CR>')
 end
 
-vim.keymap.set('n', '<A-,>', '<Cmd>BufferPrevious<CR>', { silent = true })
-vim.keymap.set('n', '<A-.>', '<Cmd>BufferNext<CR>', { silent = true })
-vim.keymap.set('n', '<A-0>', '<Cmd>BufferLast<CR>', { silent = true })
-vim.keymap.set('n', '<A-c>', '<Cmd>BufferClose<CR>', { silent = true })
-vim.keymap.set('n', '<A-r>', '<Cmd>BufferRestore<CR>', { silent = true })
-vim.keymap.set('n', '<A-f>', '<Cmd>BufferPick<CR>', { silent = true })
-vim.keymap.set('n', '<A-d>', '<Cmd>BufferPickDelete<CR>', { silent = true })
+vim.keymap.set('n', '<A-,>', '<Cmd>BufferPrevious<CR>')
+vim.keymap.set('n', '<A-.>', '<Cmd>BufferNext<CR>')
+vim.keymap.set('n', '<A-0>', '<Cmd>BufferLast<CR>')
+vim.keymap.set('n', '<A-c>', '<Cmd>BufferClose<CR>')
+vim.keymap.set('n', '<A-r>', '<Cmd>BufferRestore<CR>')
+vim.keymap.set('n', '<A-f>', '<Cmd>BufferPick<CR>')
+vim.keymap.set('n', '<A-d>', '<Cmd>BufferPickDelete<CR>')
 
 local function toggle_maximize()
   if vim.t.maximized then
@@ -178,8 +182,8 @@ local function toggle_maximize()
   end
 end
 
-vim.keymap.set("n", "<C-W>m", toggle_maximize, { silent = true, desc = 'Maximize window' })
-vim.keymap.set("n", "<C-W>\\", ':vsplit | terminal<CR>', { silent = true, desc = 'Split terminal' })
+vim.keymap.set("n", "<C-W>m", toggle_maximize, { desc = 'Maximize window' })
+vim.keymap.set("n", "<C-W>\\", ':vsplit | terminal<CR>', { desc = 'Split terminal' })
 
 vim.api.nvim_create_autocmd({ "TermOpen", "BufEnter" }, {
   pattern = { "*" },

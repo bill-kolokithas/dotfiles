@@ -22,6 +22,11 @@ return {
       timeout = 4000,
       width = { min = 20 }
     },
-    scroll = {}
+    scroll = {},
+    input = {},
+    scratch = {}
+  },
+  keys = {
+    { "<leader>c", function() require('snacks').scratch() end, desc = "Toggle Scratch Buffer" }
   }
 }

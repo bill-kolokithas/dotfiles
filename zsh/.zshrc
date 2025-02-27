@@ -133,6 +133,7 @@ alias cp='cp -i'
 alias mv='mv -i'
 alias rm='rm -i'
 alias be='bundle exec'
+alias syoco='ssh wowbagger@panopticon.skroutz.gr -t "bash -i -c '\''syoco'\''"'
 
 loop() {
 	for ((;;)) { "$@"; read; }

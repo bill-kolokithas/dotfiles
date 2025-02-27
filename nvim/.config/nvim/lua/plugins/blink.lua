@@ -21,10 +21,11 @@ return {
       list = {
         selection = {
           auto_insert = false,
-          preselect = function(ctx) return ctx.mode ~= "cmdline" end,
+          preselect = function(ctx)
+            return ctx.mode ~= "cmdline"
+          end
         }
       },
-      ghost_text = { enabled = true },
       documentation = {
         auto_show = true,
         auto_show_delay_ms = 1000
