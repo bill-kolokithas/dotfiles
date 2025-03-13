@@ -2,6 +2,6 @@ return {
   "folke/persistence.nvim",
   event = "BufReadPre",
   opts = {
-      need = 2
+    need = 2
   }
 }

@@ -1,5 +1,6 @@
 return {
   'cbochs/grapple.nvim',
+  cmd = 'Grapple',
   opts = {
     scope = 'file',
     scopes = {

@@ -3,7 +3,8 @@ return {
   dependencies = {
     "nvim-lua/plenary.nvim"
   },
+  cmd = 'Neogit',
   opts = {
-    graph_style = 'unicode'
+    graph_style = 'kitty'
   }
 }
