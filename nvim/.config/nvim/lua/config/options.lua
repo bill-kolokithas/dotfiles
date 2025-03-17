@@ -1,0 +1,35 @@
+vim.g.mapleader = " "
+vim.g.maplocalleader = "\\"
+
+vim.opt.undofile = true
+vim.opt.title = true
+vim.opt.hidden = true
+vim.opt.number = true
+vim.opt.ignorecase = true
+vim.opt.smartcase = true
+vim.opt.splitbelow = true
+vim.opt.splitright = true
+vim.opt.updatetime = 100
+vim.opt.smartindent = true
+vim.opt.shortmess:append("c")
+vim.opt.expandtab = true
+vim.opt.relativenumber = true
+vim.opt.tabstop = 2
+vim.opt.mouse = ''
+vim.opt.softtabstop = 2
+vim.opt.shiftwidth = 2
+vim.opt.foldmethod = "expr"
+vim.opt.foldexpr = 'v:lua.vim.treesitter.foldexpr()'
+vim.opt.foldenable = false
+vim.opt.foldlevel = 1
+vim.opt.sessionoptions:append({ "winpos" })
+
+vim.opt.langmap = "ΑA,ΒB,ΨC,ΔD,ΕE,ΦF,ΓG,ΗH,ΙI,ΞJ,ΚK,ΛL,ΜM,ΝN,ΟO,ΠP,QQ,ΡR,ΣS,ΤT,ΘU,ΩV,WW,ΧX,ΥY,ΖZ,αa,βb,ψc,δd,εe,φf,γg,ηh,ιi,ξj,κk,λl,μm,νn,οo,πp,qq,ρr,σs,τt,θu,ωv,ςw,χx,υy,ζz"
+vim.opt.diffopt="internal,filler,closeoff,indent-heuristic,linematch:60,algorithm:histogram"
+
+vim.g.gutentags_cache_dir = '~/.tags'
+
+vim.g.undotree_WindowLayout = 2
+vim.g.undotree_ShortIndicators = 1
+vim.g.undotree_SetFocusWhenToggle = 1
+vim.g.undotree_SplitWidth = 50

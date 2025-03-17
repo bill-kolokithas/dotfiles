@@ -13,6 +13,9 @@ return {
   opts = {
     oldfiles = {
       include_current_session = true,
+    },
+    grep = {
+      hidden = true
     }
   },
   keys = {

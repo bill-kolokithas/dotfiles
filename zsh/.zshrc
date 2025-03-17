@@ -128,7 +128,6 @@ alias ..="cd .."
 alias ...="cd ../../"
 alias stg="ssh wowbagger@vms.skroutz.gr"
 alias vi='nvim'
-alias viconf='vi ~/.config/nvim/init.lua'
 alias cp='cp -i'
 alias mv='mv -i'
 alias rm='rm -i'
