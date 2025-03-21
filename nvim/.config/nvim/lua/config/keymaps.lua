@@ -8,7 +8,6 @@ vim.keymap.set('n', '<C-c>', function()
 end, { desc = 'Quit all' })
 
 vim.keymap.set('t', '<Esc>', '<C-\\><C-n>', { desc = 'Exit terminal mode' })
-
 vim.keymap.set('n', '<C-l>', '<cmd>nohlsearch<CR>', { desc = 'Clear highlight' })
 vim.keymap.set('n', '<Tab>', '<cmd>set relativenumber!<CR>', { desc = 'Toggle relative number' })
 
@@ -72,31 +71,28 @@ vim.keymap.set('n', '<leader>gb', '<cmd>Gitsigns blame<CR>', { desc = 'Git blame
 vim.keymap.set('n', '<leader>go', function() require('snacks').gitbrowse() end, { desc = 'Git open file' })
 vim.keymap.set('n', '<leader>n', function() require('snacks').notifier.show_history() end, { desc = 'Notify history' })
 vim.keymap.set('n', '<leader>m', '<cmd>Grapple open_tags<CR>', { desc = 'Open Grapple tags' })
-vim.keymap.set('n', '<leader>M', ':GrappleTagBuffer', { desc = 'Set Grapple tag' })
 
-vim.api.nvim_create_user_command(
-  "GrappleTagBuffer",
-  function(opts)
-    -- This calls Grapple's tag functionality with a custom "buffer=" scope.
-    require("grapple").tag({ path = opts.args })
-  end,
-  {
-    nargs = 1,
-    desc = "Tag buffer with Grapple",
-    complete = function(arglead)
-      local matches = {}
-      -- Loop through all buffers and collect their names (as potential IDs)
-      for _, buf in ipairs(vim.api.nvim_list_bufs()) do
-        local name = vim.api.nvim_buf_get_name(buf)
-        -- Only include buffers that have a name
-        if name ~= "" and name:find(arglead) then
-          table.insert(matches, name)
-        end
-      end
-      return matches
+vim.keymap.set('n', '<leader>M', function()
+  -- Collect all non-empty buffer names
+  local buffers = {}
+  for _, buf in ipairs(vim.api.nvim_list_bufs()) do
+    local name = vim.api.nvim_buf_get_name(buf)
+    if name ~= "" then
+      table.insert(buffers, name)
     end
-  }
-)
+  end
+
+  -- Launch fzf-lua with the list of buffers
+  require("fzf-lua").fzf_exec(buffers, {
+    prompt = 'Select buffer for Grapple tag> ',
+    actions = {
+      ['default'] = function(selected)
+        local choice = selected[1]
+        require("grapple").tag({ path = choice })
+      end,
+    },
+  })
+end, { desc = 'Set Grapple tag' })
 
 -- Goto buffer by number
 for i = 1, 9 do
