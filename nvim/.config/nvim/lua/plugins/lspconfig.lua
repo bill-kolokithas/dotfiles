@@ -3,10 +3,7 @@ return {
   config = function()
     local capabilities = require('blink.cmp').get_lsp_capabilities()
     require("lspconfig").ruby_lsp.setup({
-      capabilities = capabilities,
-      settings = {
-        rails = true
-      }
+      capabilities = capabilities
     })
 
     require("lspconfig").lua_ls.setup({

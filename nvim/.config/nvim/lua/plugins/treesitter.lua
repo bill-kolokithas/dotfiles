@@ -55,9 +55,6 @@ return {
     main = 'nvim-treesitter.configs',
     opts = {
       refactor = {
-        highlight_definitions = {
-          enable = true
-        },
         smart_rename = {
           enable = true,
           keymaps = {
