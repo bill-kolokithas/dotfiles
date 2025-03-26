@@ -1,12 +1,11 @@
 return {
   { "tpope/vim-repeat" },
-  { "tpope/vim-unimpaired" },
-  { "numToStr/Comment.nvim", event = 'VeryLazy' },
   { "bronson/vim-visual-star-search" },
   { "farmergreg/vim-lastplace" },
   { "lervag/file-line" },
   { "romgrk/barbar.nvim" },
   { "sindrets/diffview.nvim" },
+  { "numToStr/Comment.nvim", event = 'VeryLazy' },
   { 'kylechui/nvim-surround', config = true, event = 'VeryLazy' },
   { 'nvim-lualine/lualine.nvim', config = true, event = 'VeryLazy' },
   { "mg979/vim-visual-multi", event = 'VeryLazy' },

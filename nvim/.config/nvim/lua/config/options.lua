@@ -25,3 +25,9 @@ vim.opt.foldlevel = 1
 vim.opt.sessionoptions:append({ "winpos" })
 vim.opt.diffopt = "filler,closeoff,indent-heuristic,linematch:60,algorithm:histogram"
 vim.opt.langmap = "ΑA,ΒB,ΨC,ΔD,ΕE,ΦF,ΓG,ΗH,ΙI,ΞJ,ΚK,ΛL,ΜM,ΝN,ΟO,ΠP,QQ,ΡR,ΣS,ΤT,ΘU,ΩV,WW,ΧX,ΥY,ΖZ,αa,βb,ψc,δd,εe,φf,γg,ηh,ιi,ξj,κk,λl,μm,νn,οo,πp,qq,ρr,σs,τt,θu,ωv,ςw,χx,υy,ζz"
+
+vim.diagnostic.config({
+  virtual_lines = {
+    current_line = true
+  }
+})

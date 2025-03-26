@@ -8,8 +8,9 @@ vim.keymap.set('n', '<C-c>', function()
 end, { desc = 'Quit all' })
 
 vim.keymap.set('t', '<Esc>', '<C-\\><C-n>', { desc = 'Exit terminal mode' })
+vim.keymap.set('n', '<Tab>', "<C-w>w", { desc = 'Cycle windows' })
 vim.keymap.set('n', '<C-l>', '<cmd>nohlsearch<CR>', { desc = 'Clear highlight' })
-vim.keymap.set('n', '<Tab>', '<cmd>set relativenumber!<CR>', { desc = 'Toggle relative number' })
+vim.keymap.set('n', '<C-;>', '<cmd>set relativenumber!<CR>', { desc = 'Toggle relative number' })
 
 vim.keymap.set('n', '<C-2>', function()
   local last_cmd = vim.fn.getreg(':')
