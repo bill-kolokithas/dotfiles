@@ -66,7 +66,7 @@ end, { desc = "Toggle dim" })
 
 vim.keymap.set('n', '<F7>', '<cmd>GrugFar<CR>', { desc = 'toggle Grugfar' })
 vim.keymap.set('n', '<F8>', '<cmd>AerialToggle left<CR>', { desc = 'toggle Aerial' })
-vim.keymap.set({ "n", "v" }, '<F9>', '<cmd><C-U>CopilotChatToggle<CR>', { desc = 'toggle CopilotChat' })
+vim.keymap.set({ "n", "v" }, '<F9>', ':<C-u>CopilotChatToggle<CR>', { desc = 'toggle CopilotChat' })
 
 vim.keymap.set('n', '<leader>gb', '<cmd>Gitsigns blame<CR>', { desc = 'Git blame' })
 vim.keymap.set('n', '<leader>go', function() require('snacks').gitbrowse() end, { desc = 'Git open file' })

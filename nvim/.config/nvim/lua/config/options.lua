@@ -1,6 +1,7 @@
 vim.g.mapleader = " "
 vim.g.maplocalleader = "\\"
 
+vim.opt.showmode = false
 vim.opt.undofile = true
 vim.opt.title = true
 vim.opt.hidden = true
@@ -16,7 +17,8 @@ vim.opt.expandtab = true
 vim.opt.tabstop = 2
 vim.opt.softtabstop = 2
 vim.opt.shiftwidth = 2
-vim.opt.mouse = ''
+vim.opt.mouse = 'a'
+vim.opt.mousemodel = 'popup'
 vim.opt.shortmess:append("c")
 vim.opt.foldmethod = "expr"
 vim.opt.foldexpr = 'v:lua.vim.treesitter.foldexpr()'
