@@ -4,9 +4,7 @@ return {
     {
       "junegunn/fzf",
       version = '*',
-      build = function()
-        vim.fn["fzf#install"]()
-      end
+      build = ":call fzf#install()"
     }
   },
   cmd = 'FzfLua',
