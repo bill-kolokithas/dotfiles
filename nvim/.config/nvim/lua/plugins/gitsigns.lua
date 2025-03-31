@@ -5,11 +5,12 @@ return {
       vim.api.nvim_set_hl(0, "GitSignsChange", { fg = "#c27029", bg = "NONE" })
 
       local gitsigns = require('gitsigns')
+      require("scrollbar.handlers.gitsigns").setup()
 
       local function map(mode, l, r, desc, opts)
         opts = opts or {}
         opts.buffer = bufnr
-        if desc then opts.desc = desc end  -- Add description for Neovim's built-in help
+        if desc then opts.desc = desc end
         vim.keymap.set(mode, l, r, opts)
       end
 

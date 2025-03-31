@@ -5,6 +5,7 @@ return {
   { "lervag/file-line" },
   { "romgrk/barbar.nvim" },
   { "sindrets/diffview.nvim" },
+  { "petertriho/nvim-scrollbar", config = true },
   { "numToStr/Comment.nvim", event = 'VeryLazy' },
   { 'kylechui/nvim-surround', config = true, event = 'VeryLazy' },
   { 'nvim-lualine/lualine.nvim', config = true, event = 'VeryLazy' },
