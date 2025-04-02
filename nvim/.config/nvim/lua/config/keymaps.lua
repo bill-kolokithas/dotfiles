@@ -26,8 +26,8 @@ vim.keymap.set('v', '<', '<gv')
 vim.keymap.set('v', '>', '>gv')
 vim.keymap.set("n", "gd", vim.lsp.buf.definition, { desc = 'Go to definition' })
 vim.keymap.set("n", "gr", vim.lsp.buf.references, { desc = 'Find references' })
-vim.keymap.set("n", ")", ":lua require('nvim-treesitter.incremental_selection').scope_incremental()<CR>", { desc = 'Treesitter scope increment' })
-vim.keymap.set("n", "(", ":lua require('nvim-treesitter.incremental_selection').scope_decremental()<CR>", { desc = 'Treesitter scope decrement' })
+vim.keymap.set("n", ")", function() require('nvim-treesitter.incremental_selection').scope_incremental() end, { desc = 'Treesitter scope increment' })
+vim.keymap.set("n", "(", function() require('nvim-treesitter.incremental_selection').scope_decremental() end, { desc = 'Treesitter scope decrement' })
 
 -- Save to system clipboard
 vim.keymap.set({'n', 'v'}, '<leader>y', '"+y')
@@ -67,10 +67,7 @@ end, { desc = "Toggle dim" })
 vim.keymap.set('n', '<F7>', '<cmd>GrugFar<CR>', { desc = 'toggle Grugfar' })
 vim.keymap.set('n', '<F8>', '<cmd>AerialToggle left<CR>', { desc = 'toggle Aerial' })
 vim.keymap.set({ "n", "v" }, '<F9>', ':<C-u>CopilotChatToggle<CR>', { desc = 'toggle CopilotChat' })
-
 vim.keymap.set('n', '<leader>gb', '<cmd>Gitsigns blame<CR>', { desc = 'Git blame' })
-vim.keymap.set('n', '<leader>go', function() require('snacks').gitbrowse() end, { desc = 'Git open file' })
-vim.keymap.set('n', '<leader>n', function() require('snacks').notifier.show_history() end, { desc = 'Notify history' })
 vim.keymap.set('n', '<leader>m', '<cmd>Grapple open_tags<CR>', { desc = 'Open Grapple tags' })
 
 vim.keymap.set('n', '<leader>M', function()

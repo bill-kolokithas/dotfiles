@@ -27,6 +27,8 @@ return {
     scratch = {}
   },
   keys = {
-    { "<leader>c", function() require('snacks').scratch() end, desc = "Toggle Scratch Buffer" }
+    { '<leader>c', function() require('snacks').scratch() end, desc = 'Toggle Scratch Buffer' },
+    { '<leader>go', function() require('snacks').gitbrowse() end, { desc = 'Git open file' } },
+    { '<leader>N', function() require('snacks').notifier.show_history() end, { desc = 'Notify history' } }
   }
 }
