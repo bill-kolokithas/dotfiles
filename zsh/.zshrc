@@ -51,7 +51,6 @@ zstyle ':completion:*:*:kill:*:processes' list-colors "=(#b) #([0-9]#) #(*)=0=01
 zstyle ':completion:*:kill:*' command 'ps -u $USER -o pid,cmd'
 
 [ -r ~/.ssh/known_hosts ] && _ssh_hosts=(${${${${(f)"$(<$HOME/.ssh/known_hosts)"}:#[\|]*}%%\ *}%%,*}) || _ssh_hosts=()
-#[ -r /etc/hosts ] && : ${(A)_etc_hosts:=${(s: :)${(ps:\t:)${${(f)~~"$(</etc/pdnsd/pdnsd_hosts)"}%%\#*}##[:blank:]#[^[:blank:]]#}}} || _etc_hosts=()
 hosts=(
 	"$_ssh_hosts[@]"
 	"$HOST"
@@ -120,19 +119,15 @@ fancy-ctrl-z () {
 zle -N fancy-ctrl-z
 bindkey '^Z' fancy-ctrl-z
 
-#source /usr/share/zsh/site-contrib/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
-
 alias ls='ls --color=auto'
 alias grep='grep --color=auto'
 alias ..="cd .."
 alias ...="cd ../../"
-alias stg="ssh wowbagger@vms.skroutz.gr"
 alias vi='nvim'
 alias cp='cp -i'
 alias mv='mv -i'
 alias rm='rm -i'
 alias be='bundle exec'
-alias syoco='ssh wowbagger@panopticon.skroutz.gr -t "bash -i -c '\''syoco'\''"'
 
 loop() {
 	for ((;;)) { "$@"; read; }
@@ -147,3 +142,5 @@ export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
 
 alias yazi='~/Downloads/yazi-x86_64-unknown-linux-musl/yazi'
+
+[[ -f ~/.zsh_aliases_private ]] && source ~/.zsh_aliases_private

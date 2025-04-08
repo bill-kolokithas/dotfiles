@@ -13,7 +13,6 @@ export JAVA_HOME=$(readlink -f /usr/bin/java | sed "s:bin/java::")
 export DISABLE_SPRING=1
 export EDITOR=nvim
 export VISUAL=nvim
-export TERMCOLOR=rxvt-unicode-256color
 export COLORTERM=truecolor
 export LIBVA_DRIVER_NAME=iHD
 export RIPGREP_CONFIG_PATH=~/.ripgreprc
