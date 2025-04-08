@@ -1,15 +1,25 @@
 return {
   'saghen/blink.cmp',
-  dependencies = 'rafamadriz/friendly-snippets',
+  dependencies = { "fang2hou/blink-copilot" },
   version = '*',
   opts = {
+    sources = {
+      default = { 'lsp', 'buffer', 'snippets', 'path', 'copilot' },
+      providers = {
+        copilot = {
+          name = "copilot",
+          module = "blink-copilot",
+          score_offset = 100,
+          min_keyword_length = 5,
+          async = true,
+        }
+      }
+    },
     keymap = {
       preset = 'enter',
-      ['<C-j>'] = { 'select_next', 'fallback' },
-      ['<C-k>'] = { 'select_prev', 'fallback' },
       ['<Tab>'] = { 'select_next', 'fallback' },
       ['<S-Tab>'] = { 'select_prev', 'fallback' },
-      ['<Del>'] = { 'hide', 'fallback' },
+      ['<A-Backspace>'] = { 'hide', 'fallback' }
     },
     cmdline = {
       enabled = true,
