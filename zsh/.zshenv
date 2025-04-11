@@ -17,6 +17,5 @@ export COLORTERM=truecolor
 export LIBVA_DRIVER_NAME=iHD
 export RIPGREP_CONFIG_PATH=~/.ripgreprc
 export WORDCHARS=$WORDCHARS:
-export VIMRUNTIME=~/Downloads/nvim-linux-x86_64/share/nvim/runtime
 export DBUS_SESSION_BUS_ADDRESS=unix:path=/run/user/$UID/bus
 export MEMCACHED_URI='127.0.0.1:11211'

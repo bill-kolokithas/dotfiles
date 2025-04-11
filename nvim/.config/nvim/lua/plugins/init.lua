@@ -11,7 +11,6 @@ return {
   { 'nvim-lualine/lualine.nvim', config = true, event = 'VeryLazy' },
   { "mg979/vim-visual-multi", event = 'VeryLazy' },
   { 'MagicDuck/grug-far.nvim', cmd = 'GrugFar', config = true },
-  { 'nguyenvukhang/nvim-toggler', event = 'VeryLazy', config = true },
   { 'chentoast/marks.nvim', event = 'VeryLazy', config = true },
   { "mfussenegger/nvim-dap", event = 'VeryLazy' },
   { "suketa/nvim-dap-ruby", event = 'VeryLazy', config = true },
