@@ -21,7 +21,6 @@ vim.keymap.set('n', '<C-2>', function()
   end
 end, { silent = false, desc = "Repeat last Ex command" })
 
-vim.keymap.set('n', 'Q', '@q')
 vim.keymap.set('v', '<', '<gv')
 vim.keymap.set('v', '>', '>gv')
 vim.keymap.set("n", "gd", vim.lsp.buf.definition, { desc = 'Go to definition' })

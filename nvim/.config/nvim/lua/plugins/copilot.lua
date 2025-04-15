@@ -3,7 +3,9 @@ return {
     "zbirenbaum/copilot.lua",
     cmd = "Copilot",
     event = "InsertEnter",
-    config = true
+    opts = {
+      copilot_model = "gpt-4o-copilot"
+    }
   },
   {
     "CopilotC-Nvim/CopilotChat.nvim",
@@ -13,6 +15,8 @@ return {
     },
     build = "make tiktoken",
     cmd = "CopilotChatToggle",
-    config = true
+    opts = {
+      model = 'claude-3.7-sonnet'
+    }
   }
 }

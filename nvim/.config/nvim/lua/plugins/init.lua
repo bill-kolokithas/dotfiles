@@ -9,7 +9,6 @@ return {
   { "numToStr/Comment.nvim", event = 'VeryLazy' },
   { 'kylechui/nvim-surround', config = true, event = 'VeryLazy' },
   { 'nvim-lualine/lualine.nvim', config = true, event = 'VeryLazy' },
-  { "mg979/vim-visual-multi", event = 'VeryLazy' },
   { 'MagicDuck/grug-far.nvim', cmd = 'GrugFar', config = true },
   { 'chentoast/marks.nvim', event = 'VeryLazy', config = true },
   { "mfussenegger/nvim-dap", event = 'VeryLazy' },
