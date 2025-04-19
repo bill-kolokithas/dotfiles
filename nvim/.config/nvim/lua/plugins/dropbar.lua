@@ -5,7 +5,12 @@ return {
       path = {
         relative_to = function(buf, _)
           -- Find the .git directory relative to the current buffer
-          local git_dir = vim.fn.finddir(".git", vim.fn.expand("%:p:h") .. ";")
+          local ok, path = pcall(vim.fn.expand, "%:p:h")
+          if not ok or path == "" then
+            return ""
+          end
+
+          local git_dir = vim.fn.finddir(".git", path .. ";")
 
           -- If found, remove the "/.git" part to get the project root
           if git_dir ~= "" then
@@ -13,7 +18,7 @@ return {
           end
 
           -- Fall back to buffer's working directory if no .git directory is found
-          return vim.fn.getcwd(buf)
+          return pcall(vim.fn.getcwd, buf) and vim.fn.getcwd(buf) or ""
         end
       }
     },
@@ -24,7 +29,7 @@ return {
         return {
           utils.source.fallback({
             sources.lsp,
-            sources.path,
+            sources.path
           })
         }
       end
