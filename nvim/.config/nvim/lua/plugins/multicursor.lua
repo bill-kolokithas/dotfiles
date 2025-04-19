@@ -13,14 +13,6 @@ return {
       layerSet("n", "<esc>", function() mc.clearCursors() end)
     end)
 
-    mc.onSafeState(function()
-      if mc.hasCursors() then
-        vim.cmd('Hardtime disable')
-      else
-        vim.cmd('Hardtime enable')
-      end
-    end)
-
     local hl = vim.api.nvim_set_hl
     hl(0, "MultiCursorCursor", { reverse = true })
     hl(0, "MultiCursorVisual", { link = "Visual" })

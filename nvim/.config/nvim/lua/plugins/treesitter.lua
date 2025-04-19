@@ -16,7 +16,8 @@ return {
         "ruby",
         "python",
         "javascript",
-        "sql"
+        "sql",
+        "http"
       },
       sync_install = false,
       highlight = { enable = true },
