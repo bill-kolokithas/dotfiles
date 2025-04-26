@@ -5,6 +5,7 @@ return {
   { "lervag/file-line" },
   { "romgrk/barbar.nvim" },
   { "sindrets/diffview.nvim" },
+  { "wsdjeg/record-key.nvim", cmd = 'RecordKeyToggle' },
   { "petertriho/nvim-scrollbar", config = true },
   { "numToStr/Comment.nvim", event = 'VeryLazy' },
   { 'kylechui/nvim-surround', config = true, event = 'VeryLazy' },
