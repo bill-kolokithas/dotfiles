@@ -29,3 +29,10 @@ vim.api.nvim_create_autocmd("TextYankPost", {
     end
   end
 })
+
+vim.api.nvim_create_autocmd("FileType", {
+  pattern = "*",
+  callback = function()
+    vim.opt_local.indentkeys = { "o", "O", "<CR>", "!^F" }
+  end
+})

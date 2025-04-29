@@ -42,20 +42,8 @@ return {
         }
       },
       documentation = {
-        auto_show = true,
-        auto_show_delay_ms = 1000
-      },
-      menu = {
-        draw = {
-          columns = {
-            { "kind_icon" },
-            { "label", gap = 1 }
-          }
-        }
+        auto_show = true
       }
-    },
-    signature = {
-      enabled = true
     }
   }
 }
