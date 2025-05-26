@@ -18,7 +18,7 @@ return {
     build = "make tiktoken",
     cmd = "CopilotChatToggle",
     opts = {
-      model = 'claude-3.7-sonnet'
+      model = 'claude-sonnet-4'
     }
   }
 }
