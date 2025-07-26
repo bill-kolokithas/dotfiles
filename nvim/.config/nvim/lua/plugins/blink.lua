@@ -10,7 +10,7 @@ return {
           name = "copilot",
           module = "blink-copilot",
           score_offset = 10,
-          min_keyword_length = 3,
+          min_keyword_length = 2,
           async = true,
         }
       }
