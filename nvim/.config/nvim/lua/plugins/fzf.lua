@@ -5,6 +5,10 @@ return {
       "junegunn/fzf",
       version = '*',
       build = ":call fzf#install()"
+    },
+    {
+      "elanmed/fzf-lua-frecency.nvim",
+      config = true
     }
   },
   cmd = 'FzfLua',
@@ -29,7 +33,7 @@ return {
     { "<Leader>gs", "<cmd>FzfLua git_status<CR>", desc = "git status" },
     { "<Leader>r", "<cmd>FzfLua resume<CR>", desc = "FzfLua resume" },
     { "<Leader>D", "<cmd>FzfLua diagnostics_document<CR>", desc = "diagnostics" },
-    { "<Leader>o", "<cmd>FzfLua oldfiles<CR>", desc = "recent files" },
+    { "<Leader>o", "<cmd>FzfLua frecency cwd_only=true<CR>", desc = "recent files" },
     { "<Leader>H", "<cmd>FzfLua helptags<CR>", desc = "Neovim help" },
   }
 }

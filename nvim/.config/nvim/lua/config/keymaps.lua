@@ -116,3 +116,9 @@ end
 
 vim.keymap.set("n", "<C-W>m", toggle_maximize, { desc = 'Maximize window' })
 vim.keymap.set("n", "<C-W>\\", '<cmd>vsplit | terminal<CR>', { desc = 'Split terminal' })
+
+vim.keymap.set('n', '<leader>yf', function()
+  local fullpath = vim.fn.expand('%:p')
+  local gitroot = vim.fn.system('git rev-parse --show-toplevel'):gsub('\n$', '')
+  vim.fn.setreg('+', fullpath:gsub('^' .. vim.pesc(gitroot .. '/'), ''))
+end, { desc = 'Yank path relative to git root' })
