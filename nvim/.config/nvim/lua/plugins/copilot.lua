@@ -4,7 +4,7 @@ return {
     cmd = "Copilot",
     event = "InsertEnter",
     opts = {
-      copilot_model = "gpt-4o-copilot",
+      copilot_model = "gpt-41-copilot",
       suggestion = { enabled = false },
       panel = { enabled = false }
     }
@@ -13,7 +13,7 @@ return {
     "CopilotC-Nvim/CopilotChat.nvim",
     dependencies = {
       { "zbirenbaum/copilot.lua" },
-      { "nvim-lua/plenary.nvim" },
+      { "nvim-lua/plenary.nvim" }
     },
     build = "make tiktoken",
     cmd = "CopilotChatToggle",

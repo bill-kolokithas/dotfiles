@@ -35,15 +35,19 @@ return {
       }
     },
     completion = {
+      menu = {
+        auto_show = true,
+        draw = {
+          treesitter = { 'lsp' }
+        }
+      },
+      documentation = { auto_show = true },
       list = {
         selection = {
           auto_insert = false,
           preselect = true
         }
       },
-      documentation = {
-        auto_show = true
-      }
     }
   }
 }
