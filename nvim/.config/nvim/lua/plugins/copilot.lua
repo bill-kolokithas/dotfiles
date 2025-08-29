@@ -20,5 +20,13 @@ return {
     opts = {
       model = 'gpt-5'
     }
+  },
+  {
+    "olimorris/codecompanion.nvim",
+    dependencies = {
+      "nvim-lua/plenary.nvim",
+    },
+    cmd = "CodeCompanionChat",
+    config = true,
   }
 }
