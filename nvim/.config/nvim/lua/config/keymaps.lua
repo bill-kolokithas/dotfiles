@@ -29,10 +29,10 @@ vim.keymap.set("n", ")", function() require('nvim-treesitter.incremental_selecti
 vim.keymap.set("n", "(", function() require('nvim-treesitter.incremental_selection').scope_decremental() end, { desc = 'Treesitter scope decrement' })
 
 -- Save to system clipboard
-vim.keymap.set({'n', 'v'}, '<leader>y', '"+y')
-vim.keymap.set({'n', 'v'}, '<leader>Y', '"+Y')
-vim.keymap.set({'n', 'v'}, '<leader>p', '"+p')
-vim.keymap.set({'n', 'v'}, '<leader>P', '"+P')
+vim.keymap.set({'n', 'v'}, 'gy', '"+y')
+vim.keymap.set({'n', 'v'}, 'gY', '"+y$')
+vim.keymap.set({'n', 'v'}, 'gp', '"+p')
+vim.keymap.set({'n', 'v'}, 'gP', '"+P')
 
 -- UndoTree and Neotree commands
 vim.keymap.set('n', '<F1>', '<cmd>Neotree filesystem reveal_force_cwd left toggle<CR>', { desc = 'toggle Neotree' })
