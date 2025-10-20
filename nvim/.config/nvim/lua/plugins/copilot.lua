@@ -4,6 +4,7 @@ return {
     cmd = "Copilot",
     event = "InsertEnter",
     opts = {
+      copilot_node_command = "/home/billk/.nvm/versions/node/v24.9.0/bin/node",
       copilot_model = "gpt-41-copilot",
       suggestion = { enabled = false },
       panel = { enabled = false }

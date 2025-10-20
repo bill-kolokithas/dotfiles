@@ -128,6 +128,7 @@ alias cp='cp -i'
 alias mv='mv -i'
 alias rm='rm -i'
 alias be='bundle exec'
+alias fd='fdfind'
 
 loop() {
 	for ((;;)) { "$@"; read; }
