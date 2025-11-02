@@ -14,5 +14,5 @@ return {
   { 'chentoast/marks.nvim', event = 'VeryLazy', config = true },
   { "mfussenegger/nvim-dap", event = 'VeryLazy' },
   { "suketa/nvim-dap-ruby", event = 'VeryLazy', config = true },
-  { 'MeanderingProgrammer/render-markdown.nvim', cmd = 'RenderMarkdown' },
+  { 'MeanderingProgrammer/render-markdown.nvim', opts = { enabled = false } },
 }

@@ -65,11 +65,11 @@ end, { desc = "Toggle dim" })
 
 vim.keymap.set('n', '<F7>', '<cmd>GrugFar<CR>', { desc = 'toggle Grugfar' })
 vim.keymap.set('n', '<F8>', '<cmd>AerialToggle left<CR>', { desc = 'toggle Aerial' })
-vim.keymap.set({ "n", "v" }, '<F9>', ':<C-u>CopilotChatToggle<CR>', { desc = 'toggle CopilotChat' })
+vim.keymap.set('n', '<F9>', '<cmd>ClaudeCode<CR>', { desc = 'toggle ClaudeCode' })
+vim.keymap.set('n', '<leader>m', '<cmd>RenderMarkdown toggle<CR>', { desc = 'Render Markdown' })
 vim.keymap.set('n', '<leader>gb', '<cmd>Gitsigns blame<CR>', { desc = 'Git blame' })
-vim.keymap.set('n', '<leader>m', '<cmd>Grapple open_tags<CR>', { desc = 'Open Grapple tags' })
-
-vim.keymap.set('n', '<leader>M', function()
+vim.keymap.set('n', '<leader>p', '<cmd>Grapple open_tags<CR>', { desc = 'Open Grapple tags' })
+vim.keymap.set('n', '<leader>P', function()
   -- Collect all non-empty buffer names
   local buffers = {}
   for _, buf in ipairs(vim.api.nvim_list_bufs()) do

@@ -17,3 +17,4 @@ export WORDCHARS=$WORDCHARS:
 export DBUS_SESSION_BUS_ADDRESS=unix:path=/run/user/$UID/bus
 export MEMCACHED_URI='127.0.0.1:11211'
 export AWS_PROFILE=PROD_Yogurt
+export NODE_EXTRA_CA_CERTS=/etc/ssl/certs/ca-certificates.crt
